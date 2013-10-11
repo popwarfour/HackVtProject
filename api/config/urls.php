@@ -21,6 +21,6 @@ switch($request){
 		break;
 }
 
-mysql_close($con);
+
 
 ?>

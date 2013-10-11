@@ -3,8 +3,18 @@ include('config/db.php');
 include('config/urls.php');
 
 
+
 function get(){
-	echo "get";
+
+	global $db;
+	$query = "select * from events";
+	$results = $db->query($query);
+
+	
+
+	print_r($results);
+
+
 }
 
 function put(){
@@ -17,6 +27,8 @@ function post(){
 
 function delete(){
 	echo "delete";
+
 }
+
 
 ?>

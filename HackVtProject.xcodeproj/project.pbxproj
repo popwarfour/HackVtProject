@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7ADE7239547243A1A0897E07 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B5FFF606B449118CA31BF3 /* libPods.a */; };
 		DF32BC07180894B2000A3351 /* EventsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC05180894B2000A3351 /* EventsDetailViewController.m */; };
-		DF32BC0A18089DF1000A3351 /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC0918089DF0000A3351 /* EventsViewController.xib */; };
-		DF32BC0C18089E07000A3351 /* EventsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC0B18089E07000A3351 /* EventsDetailViewController.xib */; };
-		DF32BC0E18089E1B000A3351 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC0D18089E1B000A3351 /* ScannerViewController.xib */; };
-		DF32BC1018089E27000A3351 /* CalanderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC0F18089E27000A3351 /* CalanderViewController.xib */; };
+		DF32BC121808A349000A3351 /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC111808A349000A3351 /* EventsViewController.xib */; };
+		DF32BC141808A366000A3351 /* EventsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC131808A366000A3351 /* EventsDetailViewController.xib */; };
+		DF32BC161808A373000A3351 /* CalanderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC151808A373000A3351 /* CalanderViewController.xib */; };
+		DF32BC181808A393000A3351 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC171808A393000A3351 /* ScannerViewController.xib */; };
 		DFCD4C801807482F00E10FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C7F1807482F00E10FC3 /* UIKit.framework */; };
 		DFCD4C821807482F00E10FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C811807482F00E10FC3 /* Foundation.framework */; };
 		DFCD4C841807482F00E10FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C831807482F00E10FC3 /* CoreGraphics.framework */; };
@@ -53,10 +53,10 @@
 		B1FA93CDF9DE4F33B06F16BC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DF32BC04180894B2000A3351 /* EventsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsDetailViewController.h; sourceTree = "<group>"; };
 		DF32BC05180894B2000A3351 /* EventsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsDetailViewController.m; sourceTree = "<group>"; };
-		DF32BC0918089DF0000A3351 /* EventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
-		DF32BC0B18089E07000A3351 /* EventsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsDetailViewController.xib; sourceTree = "<group>"; };
-		DF32BC0D18089E1B000A3351 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
-		DF32BC0F18089E27000A3351 /* CalanderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalanderViewController.xib; sourceTree = "<group>"; };
+		DF32BC111808A349000A3351 /* EventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
+		DF32BC131808A366000A3351 /* EventsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsDetailViewController.xib; sourceTree = "<group>"; };
+		DF32BC151808A373000A3351 /* CalanderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalanderViewController.xib; sourceTree = "<group>"; };
+		DF32BC171808A393000A3351 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
 		DFCD4C7C1807482F00E10FC3 /* HackVtProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackVtProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCD4C7F1807482F00E10FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DFCD4C811807482F00E10FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,7 +129,7 @@
 			children = (
 				DF32BC04180894B2000A3351 /* EventsDetailViewController.h */,
 				DF32BC05180894B2000A3351 /* EventsDetailViewController.m */,
-				DF32BC0B18089E07000A3351 /* EventsDetailViewController.xib */,
+				DF32BC131808A366000A3351 /* EventsDetailViewController.xib */,
 			);
 			name = "Event Details View Controller";
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 			children = (
 				DFCD4CC31807494700E10FC3 /* ScannerViewController.h */,
 				DFCD4CC41807494700E10FC3 /* ScannerViewController.m */,
-				DF32BC0D18089E1B000A3351 /* ScannerViewController.xib */,
+				DF32BC171808A393000A3351 /* ScannerViewController.xib */,
 			);
 			name = "Scanner Controller";
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			children = (
 				DFCD4CBE1807493300E10FC3 /* EventsViewController.h */,
 				DFCD4CBF1807493300E10FC3 /* EventsViewController.m */,
-				DF32BC0918089DF0000A3351 /* EventsViewController.xib */,
+				DF32BC111808A349000A3351 /* EventsViewController.xib */,
 				DF32BC0318089470000A3351 /* Event Details View Controller */,
 			);
 			name = "Events Controller";
@@ -262,7 +262,7 @@
 			children = (
 				DFCD4CCF1808451A00E10FC3 /* CalanderViewController.h */,
 				DFCD4CD01808451A00E10FC3 /* CalanderViewController.m */,
-				DF32BC0F18089E27000A3351 /* CalanderViewController.xib */,
+				DF32BC151808A373000A3351 /* CalanderViewController.xib */,
 			);
 			name = "Calander Controller";
 			sourceTree = "<group>";
@@ -344,10 +344,10 @@
 				DFCD4C921807482F00E10FC3 /* Default.png in Resources */,
 				DFCD4C941807482F00E10FC3 /* Default@2x.png in Resources */,
 				DFCD4C961807482F00E10FC3 /* Default-568h@2x.png in Resources */,
-				DF32BC0A18089DF1000A3351 /* EventsViewController.xib in Resources */,
-				DF32BC0C18089E07000A3351 /* EventsDetailViewController.xib in Resources */,
-				DF32BC0E18089E1B000A3351 /* ScannerViewController.xib in Resources */,
-				DF32BC1018089E27000A3351 /* CalanderViewController.xib in Resources */,
+				DF32BC121808A349000A3351 /* EventsViewController.xib in Resources */,
+				DF32BC141808A366000A3351 /* EventsDetailViewController.xib in Resources */,
+				DF32BC161808A373000A3351 /* CalanderViewController.xib in Resources */,
+				DF32BC181808A393000A3351 /* ScannerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,7 +525,7 @@
 				INFOPLIST_FILE = "HackVtProject/HackVtProject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -539,7 +539,7 @@
 				INFOPLIST_FILE = "HackVtProject/HackVtProject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

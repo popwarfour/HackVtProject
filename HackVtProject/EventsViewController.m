@@ -20,19 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
-        [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 70, 30)];
-        self.eventsSegment.segmentedControlStyle = UISegmentedControlStyleBar;
-        self.eventsSegment.selectedSegmentIndex = 1;
-        [self.eventsSegment addTarget:self action:@selector(eventSegmentChanged) forControlEvents:UIControlEventValueChanged];
-        [self.view addSubview:self.eventsSegment];
         
-        self.QRScanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 55, 5, 50, 30)];
-        [self.QRScanButton setTitle:@"QR" forState:UIControlStateNormal];
-        [self.QRScanButton setBackgroundColor:[UIColor blackColor]];
-        [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:self.QRScanButton];
     }
     return self;
 }
@@ -40,6 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
+    [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 70, 30)];
+    self.eventsSegment.segmentedControlStyle = UISegmentedControlStyleBar;
+    self.eventsSegment.selectedSegmentIndex = 1;
+    [self.eventsSegment addTarget:self action:@selector(eventSegmentChanged) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.eventsSegment];
+    
+    self.QRScanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 55, 5, 50, 30)];
+    [self.QRScanButton setTitle:@"QR" forState:UIControlStateNormal];
+    [self.QRScanButton setBackgroundColor:[UIColor blackColor]];
+    [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.QRScanButton];
 }
 
 #pragma mark - Events Segment Method

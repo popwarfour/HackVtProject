@@ -21,6 +21,8 @@
     EventsViewController *theEventsController = [[EventsViewController alloc] initWithNibName:@"EventsViewController" bundle:nil];
     ScannerViewController *theScannerController = [[ScannerViewController alloc] initWithNibName:@"ScannerViewController" bundle:nil];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
     //Title To Appear On TabBar
     theEventsController.title = @"Events";
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:theEventsController.title image:[UIImage new] tag:0];

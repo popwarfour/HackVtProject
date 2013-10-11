@@ -20,7 +20,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        
+        self.allEvents = [[NSMutableArray alloc] init];
+        self.suggestedEvents = [[NSMutableArray alloc] init];
+        self.scannedEvents = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -43,6 +45,72 @@
     [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.QRScanButton];
 }
+
+#pragma mark - TABLE VIEW DATA SOURCE
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //REPLACE THE RETURN WITH THE NUMBER OF EVENTS IN THE ARRAY!
+    return 10;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"cellID";
+    
+    UITableViewCell *cell = [self.eventsTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell != nil)
+    {
+        for(UIView *subview in cell.contentView.subviews)
+        {
+            [subview removeFromSuperview];
+        }
+    }
+    
+    cell = [[UITableViewCell alloc] init];
+    //CREATE CELL HERE AND RETURN IN BELOW!
+    
+    return cell;
+}
+/*
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ 
+ }
+ 
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ 
+ }
+ 
+ #pragma - TABLE VIEW DELEGATE
+ 
+ - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+ {
+ 
+ }
+ 
+ - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+ {
+ 
+ }*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+/*
+ - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ 
+ }
+ - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+ {
+ 
+ }
+*/
 
 #pragma mark - Events Segment Method
 -(void)eventSegmentChanged

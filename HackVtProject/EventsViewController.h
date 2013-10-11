@@ -18,4 +18,8 @@
 @property (nonatomic, strong) UISegmentedControl *eventsSegment;
 @property (nonatomic, strong) UIButton *QRScanButton;
 
+@property (nonatomic, strong) NSMutableArray *allEvents;
+@property (nonatomic, strong) NSMutableArray *suggestedEvents;
+@property (nonatomic, strong) NSMutableArray *scannedEvents;
+
 @end

@@ -20,7 +20,19 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
+        [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 70, 30)];
+        self.eventsSegment.segmentedControlStyle = UISegmentedControlStyleBar;
+        self.eventsSegment.selectedSegmentIndex = 1;
+        [self.eventsSegment addTarget:self action:@selector(eventSegmentChanged) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:self.eventsSegment];
         
+        self.QRScanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 55, 5, 50, 30)];
+        [self.QRScanButton setTitle:@"QR" forState:UIControlStateNormal];
+        [self.QRScanButton setBackgroundColor:[UIColor blackColor]];
+        [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.QRScanButton];
     }
     return self;
 }
@@ -28,12 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIButton *scanButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 205, 5, 200, 50)];
-    [scanButton setTitle:@"Scan QR Code" forState:UIControlStateNormal];
-    [scanButton setBackgroundColor:[UIColor blackColor]];
-    [scanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:scanButton];
+}
+
+#pragma mark - Events Segment Method
+-(void)eventSegmentChanged
+{
+    NSLog(@"EVENT CHANGED");
 }
 
 #pragma mark - QR Scanning
@@ -73,6 +85,11 @@
     // ADD: get the decode results
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
+    
+    
+    [self parseQRSymbols:results];
+    
+    /*
     ZBarSymbol *symbol = nil;
     for(symbol in results)
         // EXAMPLE: just grab the first barcode
@@ -80,7 +97,7 @@
     
     // EXAMPLE: do something useful with the barcode data
     NSLog(@"RESULTS: %@",symbol.data);
-    
+    */
     /*
      // EXAMPLE: do something useful with the barcode image
      resultImage.image =
@@ -89,7 +106,14 @@
     
     [self.reader dismissViewControllerAnimated:TRUE completion:nil];
     
-    [[ContainerController sharedContainer] setSelectedViewController:[[[ContainerController sharedContainer] viewControllers] objectAtIndex:1]];
+}
+
+-(void)parseQRSymbols:(id<NSFastEnumeration>)symbols
+{
+    for(ZBarSymbol *symbol in symbols)
+    {
+        
+    }
 }
 
 #pragma mark - Other

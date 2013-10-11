@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) ZBarReaderViewController *reader;
 
+@property (nonatomic, strong) UITableView *eventsTableView;
+@property (nonatomic, strong) UISegmentedControl *eventsSegment;
+@property (nonatomic, strong) UIButton *QRScanButton;
+
 @end

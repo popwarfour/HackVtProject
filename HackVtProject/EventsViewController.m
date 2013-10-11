@@ -8,6 +8,7 @@
 
 #import "EventsViewController.h"
 #import "ContainerController.h"
+#import "EventCell.h"
 
 @interface EventsViewController ()
 
@@ -46,6 +47,20 @@
     [self.view addSubview:self.QRScanButton];
 }
 
+#pragma mark - Networking Controller
+
+-(void)getEventsFromServer
+{
+    [self.eventsTableView reloadData];
+    
+    [self.allEvents removeAllObjects];
+    for(NSDictionary *event in returnEvents)
+    {
+        EventObject *newEvent = [[EventObject alloc] initWithJSONObject:event];
+        [self.allEvents addObject:newEvent];
+    }
+}
+
 #pragma mark - TABLE VIEW DATA SOURCE
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -60,7 +75,7 @@
 {
     static NSString *CellIdentifier = @"cellID";
     
-    UITableViewCell *cell = [self.eventsTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EventCell *cell = [self.eventsTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell != nil)
     {
         for(UIView *subview in cell.contentView.subviews)
@@ -69,9 +84,22 @@
         }
     }
     
-    cell = [[UITableViewCell alloc] init];
-    //CREATE CELL HERE AND RETURN IN BELOW!
     
+    //Work from here down.
+    
+    if(self.eventsSegment.selectedSegmentIndex == 0)
+    {
+        cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andEventObject:[self.allEvents objectAtIndex:indexPath.row]];
+    }
+    else if(self.eventsSegment.selectedSegmentIndex == 1)
+    {
+        cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andEventObject:[self.suggestedEvents objectAtIndex:indexPath.row]];
+    }
+    else
+    {
+        cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andEventObject:[self.scannedEvents objectAtIndex:indexPath.row]];
+    }
+
     return cell;
 }
 /*
@@ -101,11 +129,12 @@
 {
     return 50;
 }
-/*
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
  {
  
  }
+ 
+ /*
  - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
  {
  
@@ -115,7 +144,7 @@
 #pragma mark - Events Segment Method
 -(void)eventSegmentChanged
 {
-    NSLog(@"EVENT CHANGED");
+    [self.eventsTableView reloadData];
 }
 
 #pragma mark - QR Scanning

@@ -10,11 +10,11 @@
 #import <UIKit/UIKit.h>
 #import <ZBarSDK/ZBarSDK.h>
 
-@interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate>
+@interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) ZBarReaderViewController *reader;
+@property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 
-@property (nonatomic, strong) UITableView *eventsTableView;
 @property (nonatomic, strong) UISegmentedControl *eventsSegment;
 @property (nonatomic, strong) UIButton *QRScanButton;
 

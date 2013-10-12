@@ -54,6 +54,7 @@
     [self runSpinAnimationOnView:self.pinWheelOrange duration:self.spinDuration rotations:3 repeat:1];
     [self runSpinAnimationOnView:self.pinWheelRed duration:self.spinDuration rotations:4 repeat:1];
     
+    /*
     VoidBlock animationBlock =
     ^{
         [self.pinWheelBlue setAlpha:1];
@@ -62,8 +63,9 @@
         [self.pinWheelRed setAlpha:1];
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
+    */
     
-    [self performSelector:@selector(setFinalPositionWithAllViews) withObject:nil afterDelay:self.spinDuration - .1];
+    [self performSelector:@selector(setFinalPositionWithAllViews) withObject:nil afterDelay:self.spinDuration - .05];
 }
 
 -(void)doOneBackwardsRotation
@@ -73,7 +75,7 @@
     [self runSpinAnimationOnView:self.pinWheelGreen duration:self.spinDuration rotations:4 repeat:1];
     [self runSpinAnimationOnView:self.pinWheelBlue duration:self.spinDuration rotations:4 repeat:1];
     
-    
+    /*
     VoidBlock animationBlock =
     ^{
         [self.pinWheelBlue setAlpha:1];
@@ -82,8 +84,9 @@
         [self.pinWheelRed setAlpha:1];
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
+    */
     
-    [self performSelector:@selector(setFinalPositionWithAllViewsForFinish) withObject:nil afterDelay:self.spinDuration - .1];
+    [self performSelector:@selector(setFinalPositionWithAllViewsForFinish) withObject:nil afterDelay:self.spinDuration - .05];
 }
 
 - (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
@@ -101,6 +104,7 @@
 
 -(void)setFinalPositionWithAllViews
 {
+    /*
     VoidBlock animationBlock =
     ^{
         [self.pinWheelBlue setAlpha:0];
@@ -109,6 +113,7 @@
         [self.pinWheelRed setAlpha:0];
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
+    */
     
     self.pinWheelBlue.transform = CGAffineTransformMakeRotation(M_PI / 2.0 * 1);
     self.pinWheelGreen.transform = CGAffineTransformMakeRotation(M_PI / 2.0 * 2);
@@ -120,6 +125,7 @@
 
 -(void)setFinalPositionWithAllViewsForFinish
 {
+    /*
     VoidBlock animationBlock =
     ^{
         [self.pinWheelBlue setAlpha:0];
@@ -128,6 +134,7 @@
         [self.pinWheelRed setAlpha:0];
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
+    */
     
     self.pinWheelBlue.transform = CGAffineTransformMakeRotation(M_PI / 2.0 * 4);
     self.pinWheelGreen.transform = CGAffineTransformMakeRotation(M_PI / 2.0 * 4);

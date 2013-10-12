@@ -66,14 +66,14 @@
 		DFCD4CDD18084ADB00E10FC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4CDC18084ADB00E10FC3 /* AVFoundation.framework */; };
 		DFCD4CDF18084AE100E10FC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4CDE18084AE100E10FC3 /* QuartzCore.framework */; };
 		DFF3A3711809BA35004AB68A /* MapPinSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF3A3701809BA35004AB68A /* MapPinSelectorView.m */; };
-		DFF3A37A1809BBF2004AB68A /* blueLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3721809BBF2004AB68A /* blueLeaf.png */; };
-		DFF3A37B1809BBF2004AB68A /* blueLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3731809BBF2004AB68A /* blueLeaf@2x.png */; };
-		DFF3A37C1809BBF2004AB68A /* greenLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3741809BBF2004AB68A /* greenLeaf.png */; };
-		DFF3A37D1809BBF2004AB68A /* greenLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3751809BBF2004AB68A /* greenLeaf@2x.png */; };
-		DFF3A37E1809BBF2004AB68A /* orangeLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3761809BBF2004AB68A /* orangeLeaf.png */; };
-		DFF3A37F1809BBF2004AB68A /* orangeLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3771809BBF2004AB68A /* orangeLeaf@2x.png */; };
-		DFF3A3801809BBF2004AB68A /* redLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3781809BBF2004AB68A /* redLeaf.png */; };
-		DFF3A3811809BBF2004AB68A /* redLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3791809BBF2004AB68A /* redLeaf@2x.png */; };
+		DFF3A38A1809C023004AB68A /* blueLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3821809C023004AB68A /* blueLeaf.png */; };
+		DFF3A38B1809C023004AB68A /* blueLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3831809C023004AB68A /* blueLeaf@2x.png */; };
+		DFF3A38C1809C023004AB68A /* greenLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3841809C023004AB68A /* greenLeaf.png */; };
+		DFF3A38D1809C023004AB68A /* greenLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3851809C023004AB68A /* greenLeaf@2x.png */; };
+		DFF3A38E1809C023004AB68A /* orangeLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3861809C023004AB68A /* orangeLeaf.png */; };
+		DFF3A38F1809C023004AB68A /* orangeLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3871809C023004AB68A /* orangeLeaf@2x.png */; };
+		DFF3A3901809C023004AB68A /* redLeaf.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3881809C023004AB68A /* redLeaf.png */; };
+		DFF3A3911809C023004AB68A /* redLeaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF3A3891809C023004AB68A /* redLeaf@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,14 +166,14 @@
 		DFCD4CDE18084AE100E10FC3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DFF3A36F1809BA35004AB68A /* MapPinSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPinSelectorView.h; sourceTree = "<group>"; };
 		DFF3A3701809BA35004AB68A /* MapPinSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPinSelectorView.m; sourceTree = "<group>"; };
-		DFF3A3721809BBF2004AB68A /* blueLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueLeaf.png; path = ../../../Desktop/GreenUp/ios/Images/blueLeaf.png; sourceTree = "<group>"; };
-		DFF3A3731809BBF2004AB68A /* blueLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueLeaf@2x.png"; path = "../../../Desktop/GreenUp/ios/Images/blueLeaf@2x.png"; sourceTree = "<group>"; };
-		DFF3A3741809BBF2004AB68A /* greenLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenLeaf.png; path = ../../../Desktop/GreenUp/ios/Images/greenLeaf.png; sourceTree = "<group>"; };
-		DFF3A3751809BBF2004AB68A /* greenLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "greenLeaf@2x.png"; path = "../../../Desktop/GreenUp/ios/Images/greenLeaf@2x.png"; sourceTree = "<group>"; };
-		DFF3A3761809BBF2004AB68A /* orangeLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeLeaf.png; path = ../../../Desktop/GreenUp/ios/Images/orangeLeaf.png; sourceTree = "<group>"; };
-		DFF3A3771809BBF2004AB68A /* orangeLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "orangeLeaf@2x.png"; path = "../../../Desktop/GreenUp/ios/Images/orangeLeaf@2x.png"; sourceTree = "<group>"; };
-		DFF3A3781809BBF2004AB68A /* redLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redLeaf.png; path = ../../../Desktop/GreenUp/ios/Images/redLeaf.png; sourceTree = "<group>"; };
-		DFF3A3791809BBF2004AB68A /* redLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redLeaf@2x.png"; path = "../../../Desktop/GreenUp/ios/Images/redLeaf@2x.png"; sourceTree = "<group>"; };
+		DFF3A3821809C023004AB68A /* blueLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueLeaf.png; path = images/blueLeaf.png; sourceTree = SOURCE_ROOT; };
+		DFF3A3831809C023004AB68A /* blueLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueLeaf@2x.png"; path = "images/blueLeaf@2x.png"; sourceTree = SOURCE_ROOT; };
+		DFF3A3841809C023004AB68A /* greenLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenLeaf.png; path = images/greenLeaf.png; sourceTree = SOURCE_ROOT; };
+		DFF3A3851809C023004AB68A /* greenLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "greenLeaf@2x.png"; path = "images/greenLeaf@2x.png"; sourceTree = SOURCE_ROOT; };
+		DFF3A3861809C023004AB68A /* orangeLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orangeLeaf.png; path = images/orangeLeaf.png; sourceTree = SOURCE_ROOT; };
+		DFF3A3871809C023004AB68A /* orangeLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "orangeLeaf@2x.png"; path = "images/orangeLeaf@2x.png"; sourceTree = SOURCE_ROOT; };
+		DFF3A3881809C023004AB68A /* redLeaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redLeaf.png; path = images/redLeaf.png; sourceTree = SOURCE_ROOT; };
+		DFF3A3891809C023004AB68A /* redLeaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "redLeaf@2x.png"; path = "images/redLeaf@2x.png"; sourceTree = SOURCE_ROOT; };
 		E1B5FFF606B449118CA31BF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -240,14 +240,14 @@
 		DF32BC211808BDF9000A3351 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				DFF3A3721809BBF2004AB68A /* blueLeaf.png */,
-				DFF3A3731809BBF2004AB68A /* blueLeaf@2x.png */,
-				DFF3A3741809BBF2004AB68A /* greenLeaf.png */,
-				DFF3A3751809BBF2004AB68A /* greenLeaf@2x.png */,
-				DFF3A3761809BBF2004AB68A /* orangeLeaf.png */,
-				DFF3A3771809BBF2004AB68A /* orangeLeaf@2x.png */,
-				DFF3A3781809BBF2004AB68A /* redLeaf.png */,
-				DFF3A3791809BBF2004AB68A /* redLeaf@2x.png */,
+				DFF3A3821809C023004AB68A /* blueLeaf.png */,
+				DFF3A3831809C023004AB68A /* blueLeaf@2x.png */,
+				DFF3A3841809C023004AB68A /* greenLeaf.png */,
+				DFF3A3851809C023004AB68A /* greenLeaf@2x.png */,
+				DFF3A3861809C023004AB68A /* orangeLeaf.png */,
+				DFF3A3871809C023004AB68A /* orangeLeaf@2x.png */,
+				DFF3A3881809C023004AB68A /* redLeaf.png */,
+				DFF3A3891809C023004AB68A /* redLeaf@2x.png */,
 				DFAE4DB91809336F00B76954 /* Gradients */,
 				DFAE4DB718092CAF00B76954 /* button.png */,
 				DF9D829F1809528D00C935B3 /* addCalander.png */,
@@ -562,14 +562,14 @@
 				DF4A4F0518098A5D004799E7 /* EventsDetailViewController_Small.xib in Resources */,
 				DF4A4F0718098A7E004799E7 /* EventsViewController_Small.xib in Resources */,
 				DF4A4F0918098AF1004799E7 /* ScannerViewController_Small.xib in Resources */,
-				DFF3A37A1809BBF2004AB68A /* blueLeaf.png in Resources */,
-				DFF3A37B1809BBF2004AB68A /* blueLeaf@2x.png in Resources */,
-				DFF3A37C1809BBF2004AB68A /* greenLeaf.png in Resources */,
-				DFF3A37D1809BBF2004AB68A /* greenLeaf@2x.png in Resources */,
-				DFF3A37E1809BBF2004AB68A /* orangeLeaf.png in Resources */,
-				DFF3A37F1809BBF2004AB68A /* orangeLeaf@2x.png in Resources */,
-				DFF3A3801809BBF2004AB68A /* redLeaf.png in Resources */,
-				DFF3A3811809BBF2004AB68A /* redLeaf@2x.png in Resources */,
+				DFF3A38A1809C023004AB68A /* blueLeaf.png in Resources */,
+				DFF3A38B1809C023004AB68A /* blueLeaf@2x.png in Resources */,
+				DFF3A38C1809C023004AB68A /* greenLeaf.png in Resources */,
+				DFF3A38D1809C023004AB68A /* greenLeaf@2x.png in Resources */,
+				DFF3A38E1809C023004AB68A /* orangeLeaf.png in Resources */,
+				DFF3A38F1809C023004AB68A /* orangeLeaf@2x.png in Resources */,
+				DFF3A3901809C023004AB68A /* redLeaf.png in Resources */,
+				DFF3A3911809C023004AB68A /* redLeaf@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,11 @@ class poster_model{
 
 	}
 
+	function add($eventid, $imgpath){
+		$query = "insert into poster values(".$eventid.", '".$imgpath."')";
+		$this->db->execute($query);
+	}
+
 	function getById($posterid){
 	
 		$query = "select event_id, scanCount from poster where id=".$posterid;

@@ -66,7 +66,12 @@ class Database{
 		    die($message);
 		}
 
+		$id = mysql_insert_id($this->con);
+
+
 		mysql_close($this->con);
+
+		return $id;
 	}
 
 }

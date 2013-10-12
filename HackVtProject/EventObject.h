@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIImage *posterImage;
 @property (nonatomic, strong) NSString *details;
 @property (nonatomic, strong) NSMutableArray *music;
+@property (nonatomic, strong) NSString *genre;
 @property int eventID;
 
 -(id)initWithJSONObject:(NSDictionary *)dictionary;

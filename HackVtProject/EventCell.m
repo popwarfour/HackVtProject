@@ -22,7 +22,7 @@
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, self.contentView.frame.size.width - 10, 100)];
         [backgroundView.layer setCornerRadius:10];
-        [backgroundView setBackgroundColor:[UIColor eventCellBackgroundColor]];
+        [backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"eventCellBackgroundGradient.png"]]];
         [backgroundView.layer setBorderWidth:1];
         [backgroundView.layer setBorderColor:[UIColor blackColor].CGColor];
         [self.contentView addSubview:backgroundView];

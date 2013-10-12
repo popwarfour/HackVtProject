@@ -25,7 +25,20 @@ function get(){
 }
 
 function put(){
-	echo "put";
+	global $events_model;
+
+	parse_str(file_get_contents("php://input"),$post_vars);
+	$eventid = $post_vars['eventid'];
+	$name = $post_vars['event_name'];
+	$location = $post_vars['event_location'];
+	$city = $post_vars['event_city'];
+	$date     = $post_vars['event_date'];
+	$genre    = $post_vars['event_genre'];
+	$description    = $post_vars['event_description'];
+
+	$events_model->updateEvent($eventid, $name, $location, $city, $date, $genre, $description);
+
+
 }
 
 function post(){
@@ -44,9 +57,9 @@ function post(){
 		$description = "";
 	}
 
-	$eventid= $events_model->insert($name, $location, $city, $date, $genre, $description);
+	$returndata= $events_model->insert($name, $location, $city, $date, $genre, $description);
 
-	echo $eventid;
+	echo $returndata;
 	//NEED TO GET genreid from genre table
 
 	

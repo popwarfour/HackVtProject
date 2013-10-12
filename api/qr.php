@@ -6,9 +6,11 @@ include('config/urls.php');
 function get(){
 	global $qr_model;
 
-	$posterid=$_GET['posterid'];
+	//posterid=$_GET['posterid'];
+	$results =$qr_model->getScans();
 
-	$results =$qr_model->getByPosterId($posterid);
+	//$results =$qr_model->getByPosterId($posterid);
+
 
 	//$status =  Array("status_code"=>200);
 	//array_unshift($results, $status);

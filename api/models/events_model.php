@@ -31,7 +31,7 @@ class events_model{
 	function listAll(){
 		$query = "select events.name as event_name, events.location as event_location, events.city as event_city, events.date as event_date, genre.genre_name as event_genre from events inner join genre on genre.id=events.fk_genre_id";
 
-		$this->db->query($query);
+		$results =$this->db->query($query);
 
 		return $results;
 	}
@@ -73,6 +73,32 @@ class events_model{
 		$this->db->execute($query);
 	}
 
+	function updateEvent($eventid, $name, $location, $city, $date, $genre, $description){
+		global $genre_model;
+		global $poster_model;
+
+		$genres = $genre_model->getByName($genre);
+
+		if(sizeof($genres) ==0 && $genre!=""){
+			$genre_model->insert($genre);
+			$genres =$genre_model->getByName($name);
+			$genreid = $genres['id'];	
+		}elseif($genre=""){
+			$genreid = null;
+		}else{
+			$genreid = $genres['id'];
+		}	
+
+		$query = "update events set
+					name='".$name."', location='".$location."',
+					city='".$city."', date='".$date."', ".$genreid.", '".$description."' where id=".$eventid;
+
+
+		$this->db->execute($query);
+
+
+	}
+
 
 	function insert($name, $location, $city, $date, $genre){
 		global $genre_model;
@@ -84,9 +110,12 @@ class events_model{
 			$genre_model->insert($genre);
 			$genres =$genre_model->getByName($name);
 			$genreid = $genres['id'];	
-		}else{
+		}elseif($genre=""){
 			$genreid = null;
+		}else{
+			$genreid = $genres['id'];
 		}	
+
 		
 		$query = "insert into events values('', '".$name."', '".$location."', '".$city."', '".$date."', '".$genreid."', '".$description."')";
 		$eventid= $this->db->execute($query);
@@ -101,13 +130,17 @@ class events_model{
 			// echo $output_dir.$_FILES['myFile']['name'];
 		}
 
+		$returndata="";
+
 		if(isset($_POST['band_id'])){
 			$query = "insert into band_to_events values(".$_POST['band_id'].",".$eventid.")";
 			$this->db->execute($query);
-			$poster_model->add($eventid, $filename);
+			$poster_model->add($eventid, "img_uploads/".$filename);
+			$returndata = "img_uploads/".$filename;
 		}
 
-		return $eventid;
+	
+		return $returndata;
 	}
 
 

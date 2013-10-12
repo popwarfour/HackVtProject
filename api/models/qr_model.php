@@ -18,6 +18,13 @@ class qr_model{
 		return $results[0];
 	}
 
+	function getScans(){
+		$query = "select fk_event_id as event_id, lat, lng, scanCount from poster_scanned";
+		$results=$this->db->query($query);
+		return $results;
+	}
+
+
 	function insert($posterid, $url, $image){
 		$query = "insert into qr values('', ".$posterid.", '".$url."', '".$image."')";
 

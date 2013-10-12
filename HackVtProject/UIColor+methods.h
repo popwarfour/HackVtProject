@@ -18,4 +18,5 @@
 +(UIColor *)eventVenueColor;
 +(UIColor *)eventLocationColor;
 +(UIColor *)eventGenreColor;
++(UIColor *)eventDescriptionColor;
 @end

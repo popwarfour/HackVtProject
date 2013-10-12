@@ -55,9 +55,26 @@
         {
             largeView = TRUE;
             //Small Poster Image
-            self.posterImage = [[UIImageView alloc] initWithImage:eventObject.posterImage];
+            
+      
+            self.posterImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speak.png"]];
             [self.posterImage setFrame:CGRectMake(5, contentHeight, 130, 180)];
             [self.mainScrollView addSubview:self.posterImage];
+        
+            /*
+            UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [likeButton setImage:[UIImage imageNamed:@"like.jpg"] forState:UIControlStateNormal];
+            [likeButton setFrame:CGRectMake(self.posterImage.frame.origin.x + self.posterImage.frame.size.width + 5, contentHeight, 50, 50)];
+            //[likeButton addTarget:self action:@selector(likeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+            [self.mainScrollView addSubview:likeButton];
+            
+            UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [calButton setImage:[UIImage imageNamed:@"addCalander.png"] forState:UIControlStateNormal];
+            [calButton setFrame:CGRectMake(self.mainScrollView.frame.size.width - 55, contentHeight, 50, 50)];
+            //[calButton addTarget:self action:@selector(calButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+            [self.mainScrollView addSubview:calButton];
+            //contentHeight += 55;
+            */
             
             if(eventObject.eventDate != nil)
             {
@@ -73,11 +90,13 @@
                 
                 UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
                 [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                /*
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
                 [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
                 NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
-                [eventDate setText:formattedDate];
+                 */
+                [eventDate setText:eventObject.eventDate];
                 [eventDate setTextAlignment:NSTextAlignmentCenter];
                 [eventDate setBackgroundColor:[UIColor clearColor]];
                 [self.mainScrollView addSubview:eventDate];
@@ -129,7 +148,7 @@
                 contentHeight += 20 + 5;
             }
             
-            if(eventObject.genre != nil)
+            if(eventObject.genre != nil && ![eventObject.genre isEqualToString:@""])
             {
                 UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
@@ -194,9 +213,24 @@
         }
         else
         {
+            /*
+            UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [likeButton setImage:[UIImage imageNamed:@"like.jpg"] forState:UIControlStateNormal];
+            [likeButton setFrame:CGRectMake(5, contentHeight, 50, 50)];
+            //[likeButton addTarget:self action:@selector(likeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+            [self.mainScrollView addSubview:likeButton];
+            
+            UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [calButton setImage:[UIImage imageNamed:@"addCalander.png"] forState:UIControlStateNormal];
+            [calButton setFrame:CGRectMake(self.mainScrollView.frame.size.width - 55, contentHeight, 50, 50)];
+            //[calButton addTarget:self action:@selector(calButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+            [self.mainScrollView addSubview:calButton];
+            //contentHeight += 55;
+            */
+            
             if(eventObject.eventDate != nil)
             {
-                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setTextColor:[UIColor eventDateColor]];
@@ -208,11 +242,13 @@
                 
                 UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
                 [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                /*
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
                 [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
                 NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
-                [eventDate setText:formattedDate];
+                 */
+                [eventDate setText:eventObject.eventDate];
                 [eventDate setTextAlignment:NSTextAlignmentCenter];
                 [eventDate setBackgroundColor:[UIColor clearColor]];
                 [self.mainScrollView addSubview:eventDate];
@@ -222,7 +258,7 @@
             
             if(eventObject.location != nil)
             {
-                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Venue"];
@@ -244,7 +280,7 @@
             
             if(eventObject.city != nil)
             {
-                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Location"];
@@ -264,9 +300,9 @@
                 contentHeight += 20 + 5;
             }
             
-            if(eventObject.genre != nil)
+            if(eventObject.genre != nil && ![eventObject.genre isEqualToString:@""])
             {
-                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Genre"];
@@ -378,8 +414,9 @@
             UILabel *descriptionTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.view.frame.size.width - 10, 20)];
             [descriptionTitle setText:@"Event Description"];
             [descriptionTitle setBackgroundColor:[UIColor clearColor]];
+            [descriptionTitle setTextColor:[UIColor eventDescriptionColor]];
             [descriptionTitle setFont:[UIFont eventsDetailTitle]];
-            [descriptionTitle setTextAlignment:NSTextAlignmentLeft];
+            [descriptionTitle setTextAlignment:NSTextAlignmentCenter];
             [self.mainScrollView addSubview:descriptionTitle];
             
             contentHeight += 25;
@@ -389,7 +426,7 @@
             UILabel *eventDetails = nil;
             eventDetails = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, size.height)];
             
-            [eventDetails setTextAlignment:NSTextAlignmentLeft];
+            [eventDetails setTextAlignment:NSTextAlignmentCenter];
             [eventDetails setFont:[UIFont eventsDetailDetails]];
             [eventDetails setText:eventObject.details];
             [eventDetails setNumberOfLines:0];
@@ -475,10 +512,23 @@
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+-(void)likeButtonPressed
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Event Followed"] message:[NSString stringWithFormat:@"%@ will now be added to your list of suggested events"] delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil, nil];
+    [alert show];
+}
+-(void)calButtonPressed
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You Are Now Attending"] message:[NSString stringWithFormat:@"%@ will now be added to your calander and list of suggested events"] delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     
 }
+
+
 
 - (void)viewDidLoad
 {

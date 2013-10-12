@@ -21,9 +21,14 @@
         self.city = [dictionary objectForKey:@"event_city"];
         self.title = [dictionary objectForKey:@"event_name"];
         self.genre = [dictionary objectForKey:@"event_genre"];
+        self.details = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";//[dictionary objectForKey:@"event_description"];
         self.music = [dictionary objectForKey:@"music"];
         self.eventID = [[dictionary objectForKey:@"event_id"] integerValue];
-        self.posterImage = [dictionary objectForKey:@"posterImage"];
+        NSString *posterImageUrl = [dictionary objectForKey:@"poster_image_url"];
+        if(posterImageUrl != nil && ![posterImageUrl isEqualToString:@""])
+        {
+            self.posterImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:posterImageUrl]]];
+        }
     }
     
     return self;

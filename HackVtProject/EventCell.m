@@ -71,13 +71,15 @@
         
         if(eventObject.eventDate != nil)
         {
-            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];
+            /*
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
             NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
-            [eventDate setText:formattedDate];
+             */
+            [eventDate setText:eventObject.eventDate];
             [eventDate setTextColor:[UIColor eventDateColor]];
             [eventDate setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:eventDate];
@@ -100,7 +102,7 @@
         
         if(eventObject.genre != nil)
         {
-            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];
             [eventDate setText:eventObject.genre];
             [eventDate setTextColor:[UIColor eventGenreColor]];
@@ -112,7 +114,7 @@
         
         if(eventObject.location != nil)
         {
-            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];
             [eventDate setText:eventObject.location];
             [eventDate setTextColor:[UIColor eventLocationColor]];

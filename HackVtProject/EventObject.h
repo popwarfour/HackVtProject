@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) NSDate *eventDate;
+@property (nonatomic, strong) NSString *eventDate;
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, strong) UIImage *posterImage;
 @property (nonatomic, strong) NSString *details;

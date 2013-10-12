@@ -36,6 +36,10 @@
 {
     return [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:1];
 }
++(UIColor *)eventDescriptionColor
+{
+    return [UIColor colorWithRed:208.0f/255.0f green:163.0f/255.0f blue:0.0f/255.0f alpha:1];
+}
 
 
 @end

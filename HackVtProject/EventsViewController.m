@@ -54,6 +54,13 @@ typedef void (^VoidBlock)(void);
     [self.segmentBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"segmentBackground.png"]]];
     [self.view addSubview:self.segmentBackgroundView];
     
+    /*
+    self.sortEventSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Date", @"Genre", @"Venue", @"City", nil]];
+    [self.sortEventSegment setFrame:CGRectMake(100, 45, self.segmentBackgroundView.frame.size.width - 105, 40)];
+    [self.sortEventSegment addTarget:self action:@selector(eventSortSegmentChanged) forControlEvents:UIControlEventTouchUpInside];
+    [self.segmentBackgroundView addSubview:self.sortEventSegment];
+*/
+    
     self.eventsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
@@ -136,6 +143,21 @@ typedef void (^VoidBlock)(void);
      }
            completionBlock:^(FSNConnection *c)
      {
+         NSArray *suggestionIndexes = [NSArray arrayWithObjects:@"Night Vision", @"DJ Stavros", @"Bonjour-Hi", @"Jam Man Entertainment", nil];
+         for(NSString *title in suggestionIndexes)
+         {
+             for(EventObject *event in self.allEvents)
+             {
+                 NSLog(@"%@ - %@", title, event.title);
+                 if([event.title isEqualToString:title])
+                 {
+                     [self.suggestedEvents addObject:event];
+                 }
+             }
+             
+         }
+         
+         NSLog(@"suggested count: %d", self.suggestedEvents.count);
          /*
          NSLog(@"COMPLETED!");
          VoidBlock animate = ^
@@ -288,6 +310,43 @@ typedef void (^VoidBlock)(void);
     [self.eventsTableView reloadData];
 }
 
+/*
+-(void)eventSortSegmentChanged
+{
+    if(self.sortEventSegment.selectedSegmentIndex == 0)
+    {
+        NSArray *sortedArray;
+        sortedArray = [self.allEvents sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            NSString *first = [(EventObject *)a eventDate];
+            NSString *second = [(EventObject *)b eventDate];
+            return [first compare:second];
+        }];
+        self.allEvents = [NSMutableArray arrayWithArray:sortedArray];
+    }
+    else if(self.sortEventSegment.selectedSegmentIndex == 1)
+    {
+        NSArray *sortedArray;
+        sortedArray = [self.allEvents sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            NSString *first = [(EventObject *)a genre];
+            NSString *second = [(EventObject *)b genre];
+            return [first compare:second];
+        }];
+        self.allEvents = [NSMutableArray arrayWithArray:sortedArray];
+    }
+    else if(self.sortEventSegment.selectedSegmentIndex == 2)
+    {
+        NSArray *newSortedArray = [self.allEvents sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"venue" ascending:TRUE]]];
+        self.allEvents = [NSMutableArray arrayWithArray:newSortedArray];
+    }
+    else if(self.sortEventSegment.selectedSegmentIndex == 3)
+    {
+        NSArray *newSortedArray = [self.allEvents sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"city" ascending:TRUE]]];
+        self.allEvents = [NSMutableArray arrayWithArray:newSortedArray];
+    }
+    [self.eventsTableView reloadData];
+}
+*/
+
 #pragma mark - QR Scanning
 -(IBAction)scanButtonPressed:(id)sender
 {
@@ -351,9 +410,24 @@ typedef void (^VoidBlock)(void);
     EventObject *scannedEvent = [self.allEvents objectAtIndex:index];
     //self.scannedEventID = scannedEvent.eventID;
     self.scannedEventID = 1;
+
     
     EventObject *foundEvent = [self.allEvents objectAtIndex:index];
     EventsDetailViewController *detail = [[EventsDetailViewController alloc] initWithEventObject:foundEvent];
+    
+    BOOL found = FALSE;
+    for(EventObject *event in self.scannedEvents)
+    {
+        if(event.eventID == foundEvent.eventID)
+        {
+            found = TRUE;
+        }
+    }
+    if(!found)
+        [self.scannedEvents addObject:foundEvent];
+    
+    [self.eventsSegment setSelectedSegmentIndex:2];
+    [self.eventsTableView reloadData];
     
     //Start GPS Updates
     [self startStandardUpdates];
@@ -423,6 +497,55 @@ typedef void (^VoidBlock)(void);
     
     [connection start];
 }
+
+#pragma mark - UISearchField Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if([searchText isEqualToString:@""])
+    {
+        //REMOVE FILTERED SEARCH
+        [self getEventsFromServer];
+        [self.eventsTableView reloadData];
+    }
+    else
+    {
+        //FILTERED SEARCH
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", searchText];
+        NSArray *filteredTermData = [self.allEvents filteredArrayUsingPredicate:predicate];
+        
+        self.allEvents = [NSMutableArray arrayWithArray:filteredTermData];
+        [self.eventsTableView reloadData];
+    }
+}
+
+/*
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self generateData];
+    
+    //Keyboard
+    CGRect currentFrame = self.glossaryTableView.frame;
+    currentFrame.size.height -= 167;
+    [self.glossaryTableView setFrame:currentFrame];
+    
+    CGRect currentFrame2 = self.detailScrollView.frame;
+    currentFrame2.size.height -= 167;
+    [self.detailScrollView setFrame:currentFrame2];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    //Keyboard
+    CGRect currentFrame = self.glossaryTableView.frame;
+    currentFrame.size.height += 167;
+    [self.glossaryTableView setFrame:currentFrame];
+    
+    CGRect currentFrame2 = self.detailScrollView.frame;
+    currentFrame2.size.height += 167;
+    [self.detailScrollView setFrame:currentFrame2];
+}
+ */
 
 #pragma mark - Other
 

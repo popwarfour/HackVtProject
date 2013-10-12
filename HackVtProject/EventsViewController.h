@@ -11,12 +11,13 @@
 #import <ZBarSDK/ZBarSDK.h>
 #import "CSocketController.h"
 
-@interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
+@interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) ZBarReaderViewController *reader;
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableView;
 
 @property (nonatomic, strong) UISegmentedControl *eventsSegment;
+@property (nonatomic, strong) UISegmentedControl *sortEventSegment;
 @property (nonatomic, strong) UIButton *QRScanButton;
 
 @property (nonatomic, strong) NSMutableArray *allEvents;
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 @property (nonatomic, strong) UIView *fadeView;
+
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @property int scannedEventID;
 

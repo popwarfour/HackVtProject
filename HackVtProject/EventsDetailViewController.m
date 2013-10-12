@@ -459,7 +459,7 @@
                 int counter = 0;
                 for(NSDictionary *music in eventObject.music)
                 {
-                    NSString *songTitle = [music objectForKey:@"title"];
+                    NSString *songTitle = [music objectForKey:@"audio_title"];
                     
                     UIButton *music = [UIButton buttonWithType:UIButtonTypeCustom];
                     music.tag = counter;
@@ -502,7 +502,7 @@
 -(IBAction)playMusic:(UIButton *)sender
 {
     int indexOfSong = sender.tag;
-    NSString *urlString = [[self.eventObject.music objectAtIndex:indexOfSong] objectForKey:@"url"];
+    NSString *urlString = [[self.eventObject.music objectAtIndex:indexOfSong] objectForKey:@"audio_url"];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 }

@@ -95,12 +95,12 @@
             [eventDate setText:eventObject.city];
             [eventDate setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:eventDate];
-            
+         
             height += 20;
         }
         */
         
-        if(eventObject.genre != nil)
+        if(eventObject.genre != nil && ![eventObject.genre isEqualToString:@""])
         {
             UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];

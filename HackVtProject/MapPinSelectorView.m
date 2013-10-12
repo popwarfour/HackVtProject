@@ -63,7 +63,7 @@
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
     
-    [self performSelector:@selector(setFinalPositionWithAllViews) withObject:nil afterDelay:self.spinDuration];
+    [self performSelector:@selector(setFinalPositionWithAllViews) withObject:nil afterDelay:self.spinDuration - .1];
 }
 
 -(void)doOneBackwardsRotation
@@ -83,7 +83,7 @@
     };
     [UIView animateWithDuration:self.spinDuration / 10 animations: animationBlock];
     
-    [self performSelector:@selector(setFinalPositionWithAllViewsForFinish) withObject:nil afterDelay:self.spinDuration];
+    [self performSelector:@selector(setFinalPositionWithAllViewsForFinish) withObject:nil afterDelay:self.spinDuration - .1];
 }
 
 - (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;

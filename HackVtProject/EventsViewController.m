@@ -104,18 +104,20 @@ typedef void (^VoidBlock)(void);
 
 -(void)getEventsFromServer
 {
-    /*
     self.fadeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
     [self.fadeView setBackgroundColor:[UIColor blackColor]];
     [self.fadeView setAlpha:0];
     [self.view addSubview:self.fadeView];
+    
+    MapPinSelectorView *spinner = [[MapPinSelectorView alloc] initWithDuration:1 andFrame:CGRectMake((self.view.frame.size.width / 2) - 50, (self.view.frame.size.height / 2) - 50, 100, 100)];
+    [self.fadeView addSubview:spinner];
     
     VoidBlock animate = ^
     {
         [self.fadeView setAlpha:.8];
     };
     [UIView animateWithDuration:.3 animations:animate];
-*/
+
     
     FSNConnection *connection =
     [FSNConnection withUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@events.php", BASEURL]]
@@ -158,28 +160,7 @@ typedef void (^VoidBlock)(void);
          }
          
          NSLog(@"suggested count: %d", self.suggestedEvents.count);
-         /*
-         NSLog(@"COMPLETED!");
-         VoidBlock animate = ^
-         {
-             [self.fadeView setAlpha:0];
-         };
-         [UIView animateWithDuration:.3 animations:animate];
-         [self removeFadeView];
-         */
-         /*
-         NSMutableArray *newEvents = c.parseResult;
-         if(newEvents.count > 0)
-         {
-             //[self.allEvents removeAllObjects];
-             self.allEvents = newEvents;
-             
-             NSLog(@"COUNT: %d", self.allEvents.count);
-             
-             [self.eventsTableView reloadData];
-             [self.eventsTableView reloadSections:0 withRowAnimation:UITableViewRowAnimationLeft];
-         }
-         */
+
      }
              progressBlock:^(FSNConnection *c)
      {
@@ -295,6 +276,20 @@ typedef void (^VoidBlock)(void);
     EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:event];
     [self presentViewController:detailEventView animated:TRUE completion:nil];
 
+}
+
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row)
+    {
+         NSLog(@"COMPLETED!");
+         VoidBlock animate = ^
+         {
+         [self.fadeView setAlpha:0];
+         };
+         [UIView animateWithDuration:.3 animations:animate];
+         [self performSelector:@selector(removeFadeView) withObject:nil afterDelay:.3];
+    }
 }
 
  /*

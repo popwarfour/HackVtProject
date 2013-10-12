@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <ZBarSDK/ZBarSDK.h>
 #import "CSocketController.h"
+#import "MapPinSelectorView.h"
 
 @interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 

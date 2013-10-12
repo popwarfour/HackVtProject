@@ -11,6 +11,11 @@
 @interface EventObject : NSObject
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSDate *eventDate;
+@property (nonatomic, strong) NSMutableArray *memebers;
+@property (nonatomic, strong) UIImage *posterImage;
+@property (nonatomic, strong) NSString *details;
 
 
 -(id)initWithJSONObject:(NSDictionary *)dictionary;

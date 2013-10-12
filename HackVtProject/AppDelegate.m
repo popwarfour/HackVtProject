@@ -14,6 +14,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    //if (YES)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject: @YES forKey: @"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSString *uniqueID = CFBridgingRelease(CFUUIDCreate(NULL));
+        [[NSUserDefaults standardUserDefaults] setObject:uniqueID forKey: @"UserID"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     //First Call of singleton container controller will allocate and initilize it

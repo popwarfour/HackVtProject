@@ -15,6 +15,9 @@
 		DF32BC181808A393000A3351 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC171808A393000A3351 /* ScannerViewController.xib */; };
 		DF32BC1C1808A974000A3351 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC1B1808A974000A3351 /* EventCell.m */; };
 		DF32BC201808AA41000A3351 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC1F1808AA41000A3351 /* EventObject.m */; };
+		DF32BC231808BE1F000A3351 /* samplePoster.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC221808BE1F000A3351 /* samplePoster.jpeg */; };
+		DF32BC291808BECA000A3351 /* UIColor+methods.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC261808BECA000A3351 /* UIColor+methods.m */; };
+		DF32BC2A1808BECA000A3351 /* UIFont+methods.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC281808BECA000A3351 /* UIFont+methods.m */; };
 		DFCD4C801807482F00E10FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C7F1807482F00E10FC3 /* UIKit.framework */; };
 		DFCD4C821807482F00E10FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C811807482F00E10FC3 /* Foundation.framework */; };
 		DFCD4C841807482F00E10FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C831807482F00E10FC3 /* CoreGraphics.framework */; };
@@ -63,6 +66,11 @@
 		DF32BC1B1808A974000A3351 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
 		DF32BC1E1808AA41000A3351 /* EventObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventObject.h; sourceTree = "<group>"; };
 		DF32BC1F1808AA41000A3351 /* EventObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventObject.m; sourceTree = "<group>"; };
+		DF32BC221808BE1F000A3351 /* samplePoster.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = samplePoster.jpeg; path = images/samplePoster.jpeg; sourceTree = SOURCE_ROOT; };
+		DF32BC251808BECA000A3351 /* UIColor+methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+methods.h"; sourceTree = "<group>"; };
+		DF32BC261808BECA000A3351 /* UIColor+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+methods.m"; sourceTree = "<group>"; };
+		DF32BC271808BECA000A3351 /* UIFont+methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+methods.h"; sourceTree = "<group>"; };
+		DF32BC281808BECA000A3351 /* UIFont+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+methods.m"; sourceTree = "<group>"; };
 		DFCD4C7C1807482F00E10FC3 /* HackVtProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackVtProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCD4C7F1807482F00E10FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DFCD4C811807482F00E10FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +166,25 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
+		DF32BC211808BDF9000A3351 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DF32BC221808BE1F000A3351 /* samplePoster.jpeg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		DF32BC241808BEBD000A3351 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DF32BC251808BECA000A3351 /* UIColor+methods.h */,
+				DF32BC261808BECA000A3351 /* UIColor+methods.m */,
+				DF32BC271808BECA000A3351 /* UIFont+methods.h */,
+				DF32BC281808BECA000A3351 /* UIFont+methods.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		DFCD4C731807482F00E10FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +237,8 @@
 		DFCD4C861807482F00E10FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DF32BC241808BEBD000A3351 /* Categories */,
+				DF32BC211808BDF9000A3351 /* Images */,
 				DF32BC1D1808AA0E000A3351 /* Data Model */,
 				DFCD4C871807482F00E10FC3 /* HackVtProject-Info.plist */,
 				DFCD4C881807482F00E10FC3 /* InfoPlist.strings */,
@@ -374,6 +403,7 @@
 				DF32BC141808A366000A3351 /* EventsDetailViewController.xib in Resources */,
 				DF32BC161808A373000A3351 /* CalanderViewController.xib in Resources */,
 				DF32BC181808A393000A3351 /* ScannerViewController.xib in Resources */,
+				DF32BC231808BE1F000A3351 /* samplePoster.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +477,8 @@
 				DF32BC07180894B2000A3351 /* EventsDetailViewController.m in Sources */,
 				DF32BC1C1808A974000A3351 /* EventCell.m in Sources */,
 				DF32BC201808AA41000A3351 /* EventObject.m in Sources */,
+				DF32BC291808BECA000A3351 /* UIColor+methods.m in Sources */,
+				DF32BC2A1808BECA000A3351 /* UIFont+methods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

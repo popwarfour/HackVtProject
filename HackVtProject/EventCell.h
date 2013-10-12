@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EventObject.h"
+#import "UIFont+methods.h"
+#import "UIColor+methods.h"
 
 @interface EventCell : UITableViewCell
 

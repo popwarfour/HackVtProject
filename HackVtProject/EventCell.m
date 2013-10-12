@@ -8,6 +8,7 @@
 
 #import "EventCell.h"
 #import "EventObject.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EventCell
 
@@ -17,15 +18,83 @@
     if (self) {
         // Initialization code
         
-        UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.frame.size.width - 10, 30)];
-        [eventTitle setText:eventObject.title];
-        [self.contentView addSubview:eventTitle];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"imageName.png"]];
-        [image setFrame:CGRectMake(5, 5, 10, 10)];
-        [self.contentView addSubview:image];
+        UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, self.contentView.frame.size.width - 10, 100)];
+        [backgroundView.layer setCornerRadius:10];
+        [backgroundView setBackgroundColor:[UIColor eventCellBackgroundColor]];
+        [backgroundView.layer setBorderWidth:1];
+        [backgroundView.layer setBorderColor:[UIColor blackColor].CGColor];
+        [self.contentView addSubview:backgroundView];
         
+        int height = 5;
+        int leftPadding = 5;
         
+        if(eventObject.posterImage != nil)
+        {
+            UIImageView *image = [[UIImageView alloc] initWithImage:eventObject.posterImage];
+            [image setFrame:CGRectMake(10, leftPadding, 60, 90)];
+            [image.layer setCornerRadius:10];
+            [self.contentView addSubview:image];
+            
+            leftPadding += 70;
+        }
+        else
+        {
+            leftPadding += 5;
+        }
+        if(eventObject.title != nil)
+        {
+            UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
+            [eventTitle setTextAlignment:NSTextAlignmentLeft];
+            [eventTitle setFont:[UIFont eventsCellTitle]];
+            [eventTitle setText:eventObject.title];
+            [eventTitle setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventTitle];
+            
+            height += 20;
+        }
+       
+        if(eventObject.eventDate != nil)
+        {
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            [eventDate setFont:[UIFont eventsCellTitle]];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+            NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
+            [eventDate setText:formattedDate];
+            [eventDate setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDate];
+            
+            height += 20;
+        }
+        
+        if(eventObject.details != nil)
+        {
+            CGSize size = [eventObject.details sizeWithFont:[UIFont eventsCellDescription] constrainedToSize:CGSizeMake(self.frame.size.width - leftPadding - 10, 100 - height - 5)];
+            
+            UILabel *eventDetails = nil;
+            if(size.height < 100 - height - 5)
+            {
+                eventDetails = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, size.height)];
+            }
+            else
+            {
+                eventDetails = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 100 - height - 5)];
+            }
+            
+            [eventDetails setTextAlignment:NSTextAlignmentLeft];
+            [eventDetails setFont:[UIFont eventsCellDescription]];
+            [eventDetails setText:eventObject.details];
+            [eventDetails setNumberOfLines:0];
+            
+            
+            [eventDetails setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDetails];
+            
+            height += 60;
+        }        
     }
     return self;
 }

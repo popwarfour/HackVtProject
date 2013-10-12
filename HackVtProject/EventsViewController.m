@@ -24,6 +24,8 @@
         self.allEvents = [[NSMutableArray alloc] init];
         self.suggestedEvents = [[NSMutableArray alloc] init];
         self.scannedEvents = [[NSMutableArray alloc] init];
+        
+        [self getEventsFromServer];
     }
     return self;
 }
@@ -31,6 +33,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIView *segmentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    [segmentBackgroundView setBackgroundColor:[UIColor segmentBackgroundColor]];
+    [self.view addSubview:segmentBackgroundView];
+    
+    self.eventsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
     [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 70, 30)];
@@ -51,14 +59,17 @@
 
 -(void)getEventsFromServer
 {
-    [self.eventsTableView reloadData];
-    
-    [self.allEvents removeAllObjects];
-    for(NSDictionary *event in returnEvents)
+    for(int i = 0; i < 20; i++)
     {
-        EventObject *newEvent = [[EventObject alloc] initWithJSONObject:event];
-        [self.allEvents addObject:newEvent];
+        EventObject *newEvent1 = [[EventObject alloc] initWithJSONObject:nil];
+        EventObject *newEvent2 = [[EventObject alloc] initWithJSONObject:nil];
+        EventObject *newEvent3 = [[EventObject alloc] initWithJSONObject:nil];
+
+        [self.allEvents addObject:newEvent1];
+        [self.suggestedEvents addObject:newEvent2];
+        [self.scannedEvents addObject:newEvent3];
     }
+    [self.eventsTableView reloadData];
 }
 
 #pragma mark - TABLE VIEW DATA SOURCE
@@ -86,6 +97,12 @@
     
     
     //Work from here down.
+    
+    BOOL firstCell = FALSE;
+    if(indexPath.row == 0)
+    {
+        firstCell = TRUE;
+    }
     
     if(self.eventsSegment.selectedSegmentIndex == 0)
     {
@@ -127,7 +144,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 105;
 }
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
  {

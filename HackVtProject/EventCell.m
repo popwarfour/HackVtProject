@@ -34,7 +34,6 @@
         {
             UIImageView *image = [[UIImageView alloc] initWithImage:eventObject.posterImage];
             [image setFrame:CGRectMake(10, leftPadding, 60, 90)];
-            [image.layer setCornerRadius:10];
             [self.contentView addSubview:image];
             
             leftPadding += 70;

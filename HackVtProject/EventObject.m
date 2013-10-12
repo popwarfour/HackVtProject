@@ -15,6 +15,8 @@
     
     if(self = [super init])
     {
+        self.eventID = arc4random() % 20;
+        
         if(arc4random() % 2 == 0)
         {
             self.title = @"Crazy Music Event";

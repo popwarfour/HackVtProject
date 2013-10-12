@@ -26,12 +26,12 @@
 
 +(UIFont *)eventsDetailTitle
 {
-    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:14];
+    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:16];
 }
 
 +(UIFont *)eventsDetailDetails
 {
-    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:14];
+    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:12];
 }
 
 +(UIFont *)eventsDetailsMemebers

@@ -9,6 +9,7 @@
 #import "EventsViewController.h"
 #import "ContainerController.h"
 #import "EventCell.h"
+#import "EventsDetailViewController.h"
 
 @interface EventsViewController ()
 
@@ -53,6 +54,11 @@
     [self.QRScanButton setBackgroundColor:[UIColor blackColor]];
     [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.QRScanButton];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
 }
 
 #pragma mark - Networking Controller
@@ -146,11 +152,25 @@
 {
     return 105;
 }
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
- 
- }
- 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.eventsSegment.selectedSegmentIndex == 0)
+    {
+        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.allEvents objectAtIndex:indexPath.row]];
+        [self presentViewController:detailEventView animated:TRUE completion:nil];
+    }
+    else if(self.eventsSegment.selectedSegmentIndex == 1)
+    {
+        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.suggestedEvents objectAtIndex:indexPath.row]];
+        [self presentViewController:detailEventView animated:TRUE completion:nil];
+    }
+    else
+    {
+        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.scannedEvents objectAtIndex:indexPath.row]];
+        [self presentViewController:detailEventView animated:TRUE completion:nil];
+    }
+}
+
  /*
  - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
  {
@@ -202,34 +222,17 @@
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
     
-    
-    [self parseQRSymbols:results];
-    
-    /*
     ZBarSymbol *symbol = nil;
     for(symbol in results)
-        // EXAMPLE: just grab the first barcode
         break;
     
-    // EXAMPLE: do something useful with the barcode data
-    NSLog(@"RESULTS: %@",symbol.data);
-    */
-    /*
-     // EXAMPLE: do something useful with the barcode image
-     resultImage.image =
-     [info objectForKey: UIImagePickerControllerOriginalImage];
-     */
+    [self.reader dismissViewControllerAnimated:FALSE completion:nil];
     
-    [self.reader dismissViewControllerAnimated:TRUE completion:nil];
+    EventObject *foundEvent = [self.allEvents objectAtIndex:(arc4random() % 20)];
+    EventsDetailViewController *detail = [[EventsDetailViewController alloc] initWithEventObject:foundEvent];
     
-}
-
--(void)parseQRSymbols:(id<NSFastEnumeration>)symbols
-{
-    for(ZBarSymbol *symbol in symbols)
-    {
-        
-    }
+    [self presentViewController:detail animated:TRUE completion:nil];
+    
 }
 
 #pragma mark - Other

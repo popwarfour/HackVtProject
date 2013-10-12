@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventObject.h"
 
-@interface EventsDetailViewController : UITabBarController
+@interface EventsDetailViewController : UIViewController
+
+-(id)initWithEventObject:(EventObject *)eventObject;
+
+@property (nonatomic, strong) UINavigationBar *mainNavBar;
+@property (nonatomic, strong) UIScrollView *mainScrollView;
+@property (nonatomic, strong) UILabel *eventDate;
+@property (nonatomic, strong) UILabel *eventTitle;
+@property (nonatomic, strong) UILabel *memebersString;
+@property (nonatomic, strong) UIImageView *posterImage;
+@property (nonatomic, strong) UITextView *details;
 
 @end

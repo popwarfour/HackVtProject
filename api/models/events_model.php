@@ -11,15 +11,13 @@ class events_model{
 
 	function listAllJoined(){
 		$query = "select band.id as band_id, band.name as band_name, band.email as band_email, band.phone as band_phone, 
-			band.details as band_details, events.id as event_id, events.name as event_name, date as event_date, ei.type as event_type, 
-			genre.id as genre_id, genre.genre_name as event_genre, poster.poster_image_url, 
-			qr.image_path as qr_image_path from events
-			  inner join band_to_events bte on bte.fk_events_id=events.id
-			  inner join band on band.id=bte.fk_band_id
-			  inner join event_info ei on ei.fk_event_id=events.id
-			  inner join genre on ei.genre=genre.id
-			  inner join poster on poster.event_id=events.id
-			  inner join qr on qr.event_id=events.id
+			band.details as band_details, events.id as event_id, events.name as event_name, date as event_date, events.description as event_description,
+			genre.id as genre_id, genre.genre_name as event_genre, poster.poster_image_url
+		 from events
+			  left join band_to_events bte on bte.fk_events_id=events.id
+			  left join band on band.id=bte.fk_band_id
+			  left join genre on genre.id=events.fk_genre_id
+			  left join poster on poster.event_id=events.id
 			";
 
 
@@ -84,14 +82,14 @@ class events_model{
 			$genres =$genre_model->getByName($name);
 			$genreid = $genres['id'];	
 		}elseif($genre=""){
-			$genreid = null;
+			$genreid = 0;
 		}else{
 			$genreid = $genres['id'];
 		}	
 
 		$query = "update events set
 					name='".$name."', location='".$location."',
-					city='".$city."', date='".$date."', ".$genreid.", '".$description."' where id=".$eventid;
+					city='".$city."', date='".$date."', fk_genre_id='".$genreid."', description='".$description."' where id=".$eventid;
 
 
 		$this->db->execute($query);
@@ -111,7 +109,7 @@ class events_model{
 			$genres =$genre_model->getByName($name);
 			$genreid = $genres['id'];	
 		}elseif($genre=""){
-			$genreid = null;
+			$genreid = 0;
 		}else{
 			$genreid = $genres['id'];
 		}	

@@ -307,7 +307,12 @@ typedef void (^VoidBlock)(void);
 #pragma mark - Events Segment Method
 -(void)eventSegmentChanged
 {
-    [self.eventsTableView reloadData];
+    if(self.eventsSegment.selectedSegmentIndex == 0)
+    {
+        [self getEventsFromServer];
+    }
+    else
+        [self.eventsTableView reloadData];
 }
 
 /*
@@ -446,7 +451,7 @@ typedef void (^VoidBlock)(void);
         self.locationManager = [[CLLocationManager alloc] init];
     
     self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     
     // Set a movement threshold for new events.
     self.locationManager.distanceFilter = 500;

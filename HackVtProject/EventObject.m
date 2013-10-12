@@ -69,11 +69,11 @@
     
     if(arc4random() % 2 == 0)
     {
-        self.genre = @"Winooski";
+        self.genre = @"Metal";
     }
     else
     {
-        self.genre = @"Burlington";
+        self.genre = @"Hip Hop";
     }
     
     self.music = [[NSMutableArray alloc] init];

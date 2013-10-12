@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HackVtProject/EventsViewController.m"
-         timestampString = "403248971.345178"
+         timestampString = "403251138.291621"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
          landmarkName = "-scanButtonPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HackVtProject/EventsDetailViewController.m"
-         timestampString = "403244239.383927"
+         timestampString = "403251429.208578"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251"
+         startingLineNumber = "319"
+         endingLineNumber = "319"
          landmarkName = "-initWithEventObject:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -170,6 +170,45 @@
          startingLineNumber = "36"
          endingLineNumber = "36"
          landmarkName = "-performGETRequestToHost:withRelativeURL:andIP:withPort:withProperties:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HackVtProject/EventsViewController.m"
+         timestampString = "403252218.310061"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
+         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HackVtProject/EventsViewController.m"
+         timestampString = "403252911.523"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "336"
+         endingLineNumber = "336"
+         landmarkName = "-locationManager:didUpdateLocations:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HackVtProject/EventsViewController.m"
+         timestampString = "403253021.911198"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
+         landmarkName = "-updateServerWithPosterLocation:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

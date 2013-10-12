@@ -275,13 +275,98 @@
     for(symbol in results)
         break;
     
+    
     [self.reader dismissViewControllerAnimated:FALSE completion:nil];
     
-    EventObject *foundEvent = [self.allEvents objectAtIndex:(arc4random() % 20)];
+    int index = -1;
+    int count = 0;
+    for(EventObject *event in self.allEvents)
+    {
+        if(event.eventID == symbol.data.integerValue)
+        {
+            index = count;
+        }
+        count++;
+    }
+    if(index == -1)
+    {
+        index = arc4random() % (self.allEvents.count - 1);
+    }
+    
+    EventObject *scannedEvent = [self.allEvents objectAtIndex:index];
+    //self.scannedEventID = scannedEvent.eventID;
+    self.scannedEventID = 1;
+    
+    EventObject *foundEvent = [self.allEvents objectAtIndex:index];
     EventsDetailViewController *detail = [[EventsDetailViewController alloc] initWithEventObject:foundEvent];
+    
+    //Start GPS Updates
+    [self startStandardUpdates];
     
     [self presentViewController:detail animated:TRUE completion:nil];
     
+}
+
+#pragma mark - GPS Methods
+
+- (void)startStandardUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    
+    // Set a movement threshold for new events.
+    self.locationManager.distanceFilter = 500;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    // If it's a relatively recent event, turn off updates to save power
+    CLLocation* location = [locations lastObject];
+    NSDate* eventDate = location.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 1.0)
+    {
+        [self updateServerWithPosterLocation:(CLLocation *)location];
+        
+        [self.locationManager stopUpdatingLocation];
+        [self.locationManager stopUpdatingHeading];
+    }
+}
+
+-(void)updateServerWithPosterLocation:(CLLocation *)location
+{
+    NSArray *keys = [NSArray arrayWithObjects:@"eventid", @"lat", @"lng", nil];
+    NSArray *objects = [NSArray arrayWithObjects:[NSNumber numberWithInt:self.scannedEventID], [NSNumber numberWithDouble:location.coordinate.latitude], [NSNumber numberWithDouble:location.coordinate.longitude], nil];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+    NSLog(@"UPDATING WITH SERVER!| %@", [NSString stringWithFormat:@"%@poster.php", BASEURL]);
+    FSNConnection *connection =
+    [FSNConnection withUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@poster.php", BASEURL]]
+                    method:FSNRequestMethodPOST
+                   headers:nil
+                parameters:parameters
+                parseBlock:^id(FSNConnection *c, NSError **error)
+     {
+         NSLog(@"PARSE BLOCK");
+         return nil;
+     }
+           completionBlock:^(FSNConnection *c)
+     {
+         NSLog(@"COMPLETION");
+     }
+             progressBlock:^(FSNConnection *c)
+     {
+         NSLog(@"PREGRESS");
+     }];
+    
+    [connection start];
 }
 
 #pragma mark - Other

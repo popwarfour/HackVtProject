@@ -51,7 +51,7 @@
         }
         
         BOOL largeView = FALSE;
-        if(eventObject.posterImage != nil && (eventObject.eventDate != nil || (eventObject.memebers != nil && eventObject.memebers.count > 0)))
+        if(eventObject.posterImage != nil && (eventObject.eventDate != nil || eventObject.location != nil || eventObject.city || eventObject.genre != nil))
         {
             largeView = TRUE;
             //Small Poster Image
@@ -61,10 +61,11 @@
             
             if(eventObject.eventDate != nil)
             {
-                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Event Date"];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
                 [self.mainScrollView addSubview:eventTitle];
                 
                 contentHeight += 25;
@@ -76,12 +77,77 @@
                 [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
                 NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
                 [eventDate setText:formattedDate];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
                 [eventDate setBackgroundColor:[UIColor clearColor]];
                 [self.mainScrollView addSubview:eventDate];
                 
                 contentHeight += 20 + 5;
             }
             
+            if(eventObject.location != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Venue"];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.location];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            if(eventObject.city != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Location"];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.city];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            if(eventObject.genre != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Genre"];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.genre];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            /*
             if(eventObject.memebers != nil)
             {
                 if(eventObject.memebers.count > 0)
@@ -120,7 +186,7 @@
                     
                     contentHeight += memebers.frame.size.height + 5;
                 }
-            }
+            }*/
         }
         else
         {
@@ -161,6 +227,7 @@
                 contentHeight += 20 + 5;
             }
             
+            /*
             if(eventObject.memebers != nil)
             {
                 if(eventObject.memebers.count > 0)
@@ -200,6 +267,7 @@
                     contentHeight += memebers.frame.size.height + 5;
                 }
             }
+             */
         }
         
         

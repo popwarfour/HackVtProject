@@ -13,11 +13,11 @@ function get(){
 
 	
 
-	if(isset($_GET['bands'])){
+	//if(isset($_GET['bands'])){
 		$results = $events_model->listAllJoined();
-	}else{
-		$results = $events_model->listAll();
-	}
+	//}else{
+	//	$results = $events_model->listAll();
+	//}
 
 //$status =  Array("status_code"=>200);
 //	array_unshift($results, $status);
@@ -30,7 +30,7 @@ function put(){
 
 
 
-	
+
 
 	echo "put";
 }

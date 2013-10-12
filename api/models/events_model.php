@@ -98,7 +98,7 @@ class events_model{
 	}
 
 
-	function insert($name, $location, $city, $date, $genre){
+	function insert($name, $location, $city, $date, $genre, $description){
 		global $genre_model;
 		global $poster_model;
 
@@ -113,14 +113,14 @@ class events_model{
 		}else{
 			$genreid = $genres['id'];
 		}	
-
 		
 		$query = "insert into events values('', '".$name."', '".$location."', '".$city."', '".$date."', '".$genreid."', '".$description."')";
 		$eventid= $this->db->execute($query);
+		error_log($eventid);
 
+		global $site_url;
 		//Image stuff
 		$output_dir = "../img_uploads/";
-		var_dump($_FILES);
 		
 		if(isset($_FILES["myFile"])){
 			$filename = $eventid.".jpg";
@@ -137,7 +137,7 @@ class events_model{
 			$returndata = "img_uploads/".$filename;
 		}
 
-	
+		error_log($returndata);
 		return $returndata;
 	}
 

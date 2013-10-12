@@ -34,6 +34,7 @@ function put(){
 	echo "put";
 }
 
+//Scanned QR code comes in. 
 function post(){
 	global $poster_model;
 
@@ -56,18 +57,7 @@ function post(){
 		$scanCount++;
 
 		$poster_model->updateScan($scanId, $scanCount);
-	}
-
-	
-	//update poster with new coords and scan count
-	//$poster_model->update($lat, $lng, $scanCount, $posterid);
-
-
-	//$results = json_encode($results);
-
-	//echo $results;
-
-	
+	}	
 }
 
 function delete(){

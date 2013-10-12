@@ -1,6 +1,7 @@
 <?php
 include('config/db.php');
 include('models/genre_model.php');
+include('models/audio_model.php');
 include('models/poster_model.php');
 include('models/events_model.php');
 include('config/urls.php');
@@ -24,8 +25,10 @@ function get(){
 	echo $results;
 }
 
+//Called after pic upload
 function put(){
 	global $events_model;
+	global $audio_model;
 
 	parse_str(file_get_contents("php://input"),$post_vars);
 	$eventid = $post_vars['eventid'];
@@ -36,8 +39,16 @@ function put(){
 	$genre    = $post_vars['event_genre'];
 	$description    = $post_vars['event_description'];
 
+	$description = str_replace("'", '', $description);
+	
+	$audioids = $post_vars['audio_ids'];
+
 	$events_model->updateEvent($eventid, $name, $location, $city, $date, $genre, $description);
 
+	foreach($audioids as $audioid){
+		$audio_model->attachAudioToEvent($audioid, $eventid);
+	}
+	
 
 }
 

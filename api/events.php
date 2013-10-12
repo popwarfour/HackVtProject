@@ -1,5 +1,6 @@
 <?php
 include('config/db.php');
+include('models/audio_model.php');
 include('models/events_model.php');
 include('models/genre_model.php');
 include('config/urls.php');

@@ -10,6 +10,8 @@ class events_model{
 	}
 
 	function listAllJoined(){
+		global $audio_model;
+
 		$query = "select band.id as band_id, band.name as band_name, band.email as band_email, band.phone as band_phone, 
 			band.details as band_details, events.id as event_id, events.name as event_name, date as event_date, events.description as event_description,
 			genre.id as genre_id, genre.genre_name as event_genre, poster.poster_image_url
@@ -17,11 +19,21 @@ class events_model{
 			  left join band_to_events bte on bte.fk_events_id=events.id
 			  left join band on band.id=bte.fk_band_id
 			  left join genre on genre.id=events.fk_genre_id
-			  left join poster on poster.event_id=events.id
+			  left join poster on poster.event_id=events.id order by events.id desc
 			";
 
 
 		$results = $this->db->query($query);
+
+		$i=0;
+		foreach($results as $result){
+		
+			$eventid=$result['event_id'];
+			$audio =$audio_model->getByEventId($eventid);
+			$results[$i]['audio'] = $audio;
+
+			$i++;
+		}
 
 		return $results;
 	}

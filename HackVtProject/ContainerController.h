@@ -10,7 +10,7 @@
 #import "EventsViewController.h"
 #import "ScannerViewController.h"
 
-@interface ContainerController : UITabBarController
+@interface ContainerController : UIViewController
 
 +(ContainerController *)sharedContainer;
 

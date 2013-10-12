@@ -20,6 +20,7 @@
 		DF32BC2A1808BECA000A3351 /* UIFont+methods.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC281808BECA000A3351 /* UIFont+methods.m */; };
 		DF32BC2D1808D300000A3351 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2B1808D300000A3351 /* Back.png */; };
 		DF32BC2E1808D300000A3351 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2C1808D300000A3351 /* Back@2x.png */; };
+		DF55FBAF1808F3AC0054E5E4 /* musicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = DF55FBAE1808F3AC0054E5E4 /* musicNote.png */; };
 		DFAEDC8B1808E2560058D301 /* eventCellBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */; };
 		DFAEDC8C1808E2560058D301 /* eventCellBackgroundGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */; };
 		DFAEDC8E1808E2560058D301 /* segementBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */; };
@@ -78,6 +79,7 @@
 		DF32BC281808BECA000A3351 /* UIFont+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+methods.m"; sourceTree = "<group>"; };
 		DF32BC2B1808D300000A3351 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Back.png; path = images/Back.png; sourceTree = SOURCE_ROOT; };
 		DF32BC2C1808D300000A3351 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Back@2x.png"; path = "images/Back@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF55FBAE1808F3AC0054E5E4 /* musicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = musicNote.png; path = images/musicNote.png; sourceTree = SOURCE_ROOT; };
 		DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventCellBackgroundGradient.png; path = images/eventCellBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
 		DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eventCellBackgroundGradient@2x.png"; path = "images/eventCellBackgroundGradient@2x.png"; sourceTree = SOURCE_ROOT; };
 		DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = segementBackgroundGradient.png; path = images/segementBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
@@ -179,6 +181,7 @@
 		DF32BC211808BDF9000A3351 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF55FBAE1808F3AC0054E5E4 /* musicNote.png */,
 				DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */,
 				DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */,
 				DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */,
@@ -424,6 +427,7 @@
 				DFAEDC8B1808E2560058D301 /* eventCellBackgroundGradient.png in Resources */,
 				DFAEDC8C1808E2560058D301 /* eventCellBackgroundGradient@2x.png in Resources */,
 				DFAEDC8E1808E2560058D301 /* segementBackgroundGradient.png in Resources */,
+				DF55FBAF1808F3AC0054E5E4 /* musicNote.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

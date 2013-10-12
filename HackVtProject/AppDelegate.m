@@ -35,6 +35,7 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
+    /*
     //Title To Appear On TabBar
     theEventsController.title = @"Events";
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:theEventsController.title image:[UIImage new] tag:0];
@@ -44,9 +45,9 @@
     theScannerController.title = @"Scan QR";
     UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:theScannerController.title image:[UIImage new] tag:0];
     [theScannerController setTabBarItem:item2];
-    
-    [mainContainerController setViewControllers:[NSArray arrayWithObjects:theEventsController, theScannerController, nil] animated:TRUE];
-    self.window.rootViewController = mainContainerController;
+    */
+    //[mainContainerController setViewControllers:[NSArray arrayWithObjects:theEventsController, theScannerController, nil] animated:TRUE];
+    self.window.rootViewController = theEventsController;
     
     [self.window makeKeyAndVisible];
     return YES;

@@ -115,7 +115,7 @@
     [info objectForKey: UIImagePickerControllerOriginalImage];
     */
     
-    [[ContainerController sharedContainer] setSelectedViewController:[[[ContainerController sharedContainer] viewControllers] objectAtIndex:1]];
+    //[[ContainerController sharedContainer] setSelectedViewController:[[[ContainerController sharedContainer] viewControllers] objectAtIndex:1]];
 }
 
 

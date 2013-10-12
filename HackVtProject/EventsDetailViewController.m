@@ -22,6 +22,8 @@
     self = [super initWithNibName:@"EventsDetailViewController" bundle:nil];
     if (self)
     {
+        self.eventObject = eventObject;
+        
         self.mainNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
         [self.view addSubview:self.mainNavBar];
         
@@ -76,21 +78,25 @@
             if(eventObject.memebers.count > 0)
             {
                 UILabel *memebers = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
-                NSString *memebersString = @"";
+                NSMutableString *memebersString = [[NSMutableString alloc] init];
                 [memebers setNumberOfLines:0];
-                for(int i = 0; eventObject.memebers.count; i++)
+                for(int i = 0; i < eventObject.memebers.count; i++)
                 {
-                    if(i == eventObject.memebers.count - 1)
+                    if(i == 0)
                     {
-                        memebersString = [NSString stringWithFormat:@"%@", [eventObject.memebers objectAtIndex:i]];
+                        [memebersString appendString:[eventObject.memebers objectAtIndex:i]];
                     }
                     else
                     {
-                        memebersString = [NSString stringWithFormat:@"%@, %@", memebersString, [eventObject.memebers objectAtIndex:i]];
+                        [memebersString appendString:[NSString stringWithFormat:@", %@", [eventObject.memebers objectAtIndex:i]]];
                     }
                 }
+                [memebers setFont:[UIFont eventsDetailsMemebers]];
+                CGSize size = [memebersString sizeWithFont:[UIFont eventsDetailsMemebers] constrainedToSize:CGSizeMake(memebers.frame.size.width, CGFLOAT_MAX)];
                 [memebers setText:memebersString];
                 [memebers setBackgroundColor:[UIColor clearColor]];
+                [memebers setFrame:CGRectMake(memebers.frame.origin.x, memebers.frame.origin.y, memebers.frame.size.width, size.height)];
+                
                 [self.mainScrollView addSubview:memebers];
                 
                 contentHeight += memebers.frame.size.height + 5;
@@ -114,11 +120,61 @@
             
             contentHeight += size.height + 5;
         }
+        
+        if(eventObject.music != nil)
+        {
+            if(eventObject.music.count > 0)
+            {
+                for(NSDictionary *music in eventObject.music)
+                {
+                    NSString *songTitle = [music objectForKey:@"title"];
+                    
+                    UIButton *music = [UIButton buttonWithType:UIButtonTypeCustom];
+                    music.tag = [eventObject.music indexOfObject:music];
+                    [music setImage:[UIImage imageNamed:@"musicNote.png"] forState:UIControlStateNormal];
+                    [music addTarget:self action:@selector(playMusic:) forControlEvents:UIControlEventTouchUpInside];
+                    [music setFrame:CGRectMake(10, contentHeight, 50, 50)];
+                    
+                    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 + 55, contentHeight, self.view.frame.size.width - 60 - 15, 50)];
+                    [songLabel setText:songTitle];
+                    [songLabel setBackgroundColor:[UIColor clearColor]];
+                    [songLabel setTextAlignment:NSTextAlignmentLeft];
+                    
+                    
+                    [self.mainScrollView addSubview:music];
+                    [self.mainScrollView addSubview:songLabel];
+                    
+                    contentHeight += 55;
+                }
+                
+                
+            }
+        }
 
         [self.mainScrollView setContentSize:CGSizeMake(self.view.frame.size.width, contentHeight)];
         [self.view addSubview:self.mainScrollView];
     }
     return self;
+}
+
+-(IBAction)playMusic:(UIButton *)sender
+{
+    int indexOfSong = sender.tag;
+    NSString *urlString = [[self.eventObject.music objectAtIndex:indexOfSong] objectForKey:@"url"];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+                  
+    // You may find a test stream at <http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8>.
+
+    self.playerItem = [AVPlayerItem playerItemWithURL:url];
+
+    //(optional) [playerItem addObserver:self forKeyPath:@"status" options:0 context:&ItemStatusContext];
+
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+
+    self.player = [AVPlayer playerWithURL:￼];
+
+    //(optional) [player addObserver:self forKeyPath:@"status" options:0 context:&PlayerStatusContext];
 }
 
 -(void)backButtonPressed

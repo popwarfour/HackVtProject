@@ -13,6 +13,7 @@
 
 -(id)initWithEventObject:(EventObject *)eventObject;
 
+@property (nonatomic, strong) EventObject *eventObject;
 @property (nonatomic, strong) UINavigationBar *mainNavBar;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) UILabel *eventDate;

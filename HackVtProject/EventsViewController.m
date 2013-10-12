@@ -11,6 +11,8 @@
 #import "EventCell.h"
 #import "EventsDetailViewController.h"
 
+#define BASEURL @"http://192.168.8.246/hackvt/HackVtProject/api/"
+
 @interface EventsViewController ()
 
 @end
@@ -35,9 +37,9 @@
 {
     [super viewDidLoad];
     
-    UIView *segmentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    [segmentBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"segementBackgroundGradient.png"]]];
-    [self.view addSubview:segmentBackgroundView];
+    self.segmentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
+    [self.segmentBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"segementBackgroundGradient.png"]]];
+    [self.view addSubview:self.segmentBackgroundView];
     
     self.eventsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -46,7 +48,7 @@
     self.eventsSegment.segmentedControlStyle = UISegmentedControlStyleBar;
     self.eventsSegment.selectedSegmentIndex = 0;
     [self.eventsSegment addTarget:self action:@selector(eventSegmentChanged) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.eventsSegment];
+    [self.segmentBackgroundView addSubview:self.eventsSegment];
     
     self.QRScanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 55, 5, 50, 30)];
@@ -59,13 +61,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self.segmentBackgroundView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
 }
 
 #pragma mark - Networking Controller
 
 -(void)getEventsFromServer
-{
+{    
     for(int i = 0; i < 20; i++)
     {
         EventObject *newEvent1 = [[EventObject alloc] initWithJSONObject:nil];
@@ -102,14 +104,6 @@
         }
     }
     
-    
-    //Work from here down.
-    
-    BOOL firstCell = FALSE;
-    if(indexPath.row == 0)
-    {
-        firstCell = TRUE;
-    }
     
     if(self.eventsSegment.selectedSegmentIndex == 0)
     {
@@ -155,21 +149,24 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    EventObject *event = nil;
+
     if(self.eventsSegment.selectedSegmentIndex == 0)
     {
-        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.allEvents objectAtIndex:indexPath.row]];
-        [self presentViewController:detailEventView animated:TRUE completion:nil];
+        event = [self.allEvents objectAtIndex:indexPath.row];
     }
     else if(self.eventsSegment.selectedSegmentIndex == 1)
     {
-        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.suggestedEvents objectAtIndex:indexPath.row]];
-        [self presentViewController:detailEventView animated:TRUE completion:nil];
+        event = [self.suggestedEvents objectAtIndex:indexPath.row];
     }
     else
     {
-        EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:[self.scannedEvents objectAtIndex:indexPath.row]];
-        [self presentViewController:detailEventView animated:TRUE completion:nil];
+        event = [self.scannedEvents objectAtIndex:indexPath.row];
     }
+    
+    EventsDetailViewController *detailEventView = [[EventsDetailViewController alloc] initWithEventObject:event];
+    [self presentViewController:detailEventView animated:TRUE completion:nil];
+
 }
 
  /*

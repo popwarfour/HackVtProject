@@ -32,7 +32,7 @@
         }
         else
         {
-            
+            self.memebers = [[NSMutableArray alloc] initWithObjects:@"John Doe", @"Kevin Bacon", @"Steve McAwesomePants", nil];
         }
         
         if(arc4random() % 2 == 0)
@@ -41,7 +41,7 @@
         }
         else
         {
-            
+            self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
         }
         
         if(arc4random() % 2 == 0)
@@ -59,7 +59,14 @@
         }
         else
         {
-            
+            self.eventDate = [NSDate date];
+        }
+        
+        self.music = [[NSMutableArray alloc] init];
+        for(int i = 0; i < 10; i++)
+        {
+            NSDictionary *temp = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"http://images.handy.de/fundb/web/290/11152/82000864.mp3", @"Best Song Ever!", nil] forKeys:[NSArray arrayWithObjects:@"url", @"title", nil]];
+            [self.music addObject:temp];
         }
     }
     

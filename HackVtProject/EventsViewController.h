@@ -22,4 +22,6 @@
 @property (nonatomic, strong) NSMutableArray *suggestedEvents;
 @property (nonatomic, strong) NSMutableArray *scannedEvents;
 
+@property (nonatomic, strong) UIView *segmentBackgroundView;
+
 @end

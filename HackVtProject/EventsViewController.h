@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
+@property (nonatomic, strong) UIView *fadeView;
+
 @property int scannedEventID;
 
 @end

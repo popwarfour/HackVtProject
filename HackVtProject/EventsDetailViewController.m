@@ -34,7 +34,6 @@
         [backButton setFrame:CGRectMake(5, 5, 60, 34)];
         [self.mainNavBar addSubview:backButton];
         
-        
         int contentHeight = 5;
         
         self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
@@ -429,9 +428,9 @@
                     music.tag = counter;
                     [music setImage:[UIImage imageNamed:@"musicNote.png"] forState:UIControlStateNormal];
                     [music addTarget:self action:@selector(playMusic:) forControlEvents:UIControlEventTouchUpInside];
-                    [music setFrame:CGRectMake(15, contentHeight, 20, 20)];
+                    [music setFrame:CGRectMake(15, contentHeight - 3, 30, 30)];
                     
-                    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 + 35, contentHeight, self.view.frame.size.width - 60 - 20, 20)];
+                    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 + 35, contentHeight + 3, self.view.frame.size.width - 60 - 20, 20)];
                     [songLabel setText:songTitle];
                     [songLabel setBackgroundColor:[UIColor clearColor]];
                     [songLabel setTextAlignment:NSTextAlignmentLeft];
@@ -446,14 +445,13 @@
                     
                     if(counter != eventObject.music.count)
                     {
-                        UIView *seprator = [[UIView alloc] initWithFrame:CGRectMake(5, contentHeight - 5, self.mainScrollView.frame.size.width - 10, 2)];
+                        UIView *seprator = [[UIView alloc] initWithFrame:CGRectMake(5, contentHeight - 5, self.mainScrollView.frame.size.width - 10, 1)];
                         [seprator setBackgroundColor:[UIColor blackColor]];
                         [self.mainScrollView addSubview:seprator];
                     }
-                    
                 }
                 
-                [musicBackgroundView setFrame:CGRectMake(musicBackgroundView.frame.origin.x, musicBackgroundView.frame.origin.y, musicBackgroundView.frame.size.width, counter * 35)];
+                [musicBackgroundView setFrame:CGRectMake(musicBackgroundView.frame.origin.x, musicBackgroundView.frame.origin.y, musicBackgroundView.frame.size.width, (counter * 35) + 5)];
                 
             }
         }

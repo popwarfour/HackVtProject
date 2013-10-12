@@ -14,6 +14,9 @@
 
 #define BASEURL @"http://192.168.8.246/hackvt/HackVtProject/api/"
 
+typedef void (^VoidBlock)(void);
+
+
 @interface EventsViewController ()
 
 @end
@@ -29,8 +32,8 @@
         self.suggestedEvents = [[NSMutableArray alloc] init];
         self.scannedEvents = [[NSMutableArray alloc] init];
         
-        [self getFakeEvents];
-        //[self getEventsFromServer];
+        //[self getFakeEvents];
+        [self getEventsFromServer];
     }
     return self;
 }
@@ -94,6 +97,19 @@
 
 -(void)getEventsFromServer
 {
+    /*
+    self.fadeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+    [self.fadeView setBackgroundColor:[UIColor blackColor]];
+    [self.fadeView setAlpha:0];
+    [self.view addSubview:self.fadeView];
+    
+    VoidBlock animate = ^
+    {
+        [self.fadeView setAlpha:.8];
+    };
+    [UIView animateWithDuration:.3 animations:animate];
+*/
+    
     FSNConnection *connection =
     [FSNConnection withUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@events.php", BASEURL]]
                     method:FSNRequestMethodGET
@@ -106,29 +122,57 @@
         //Add new points
         NSArray *allEventDictionaries = [c.responseData arrayFromJSONWithError:error];
         NSMutableArray *newEventObjects = [[NSMutableArray alloc] init];
+         [self.allEvents removeAllObjects];
         for(NSDictionary *eventDictionary in allEventDictionaries)
         {
             EventObject *newEvent = [[EventObject alloc] initWithJSONObject:eventDictionary];
             [newEventObjects addObject:newEvent];
+            [self.allEvents addObject:newEvent];
         }
         
-        return newEventObjects;
+        [self.eventsTableView reloadData];
+        
+         return newEventObjects;
      }
            completionBlock:^(FSNConnection *c)
      {
+         /*
+         NSLog(@"COMPLETED!");
+         VoidBlock animate = ^
+         {
+             [self.fadeView setAlpha:0];
+         };
+         [UIView animateWithDuration:.3 animations:animate];
+         [self removeFadeView];
+         */
+         /*
          NSMutableArray *newEvents = c.parseResult;
          if(newEvents.count > 0)
          {
-             [self.allEvents removeAllObjects];
+             //[self.allEvents removeAllObjects];
              self.allEvents = newEvents;
+             
+             NSLog(@"COUNT: %d", self.allEvents.count);
+             
+             [self.eventsTableView reloadData];
+             [self.eventsTableView reloadSections:0 withRowAnimation:UITableViewRowAnimationLeft];
          }
+         */
      }
              progressBlock:^(FSNConnection *c)
      {
-         //NSLog(@"progress: %@: %.2f/%.2f", c, c.uploadProgress, c.downloadProgress);
+         
+         
+         
      }];
     
     [connection start];
+}
+
+-(void)removeFadeView
+{
+    [self.fadeView removeFromSuperview];
+    self.fadeView = nil;
 }
 
 #pragma mark - TABLE VIEW DATA SOURCE
@@ -136,6 +180,7 @@
 {
     if(self.eventsSegment.selectedSegmentIndex == 0)
     {
+        NSLog(@"counter : %d", self.allEvents.count);
         return self.allEvents.count;
     }
     else if(self.eventsSegment.selectedSegmentIndex == 1)
@@ -163,7 +208,6 @@
             [subview removeFromSuperview];
         }
     }
-    
     
     if(self.eventsSegment.selectedSegmentIndex == 0)
     {

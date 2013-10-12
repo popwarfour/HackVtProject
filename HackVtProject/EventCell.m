@@ -40,7 +40,11 @@
         }
         else
         {
-            leftPadding += 5;
+            UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speak.png"]];
+            [image setFrame:CGRectMake(10, leftPadding + 15, 60, 60)];
+            [self.contentView addSubview:image];
+            
+            leftPadding += 70;
         }
         if(eventObject.title != nil)
         {
@@ -53,7 +57,18 @@
             
             height += 20;
         }
-       
+        else
+        {
+            UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, self.frame.size.width - leftPadding - 10, 20)];
+            [eventTitle setTextAlignment:NSTextAlignmentLeft];
+            [eventTitle setFont:[UIFont eventsCellTitle]];
+            [eventTitle setText:@"Event Title Not Found"];
+            [eventTitle setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventTitle];
+            
+            height += 20;
+        }
+        
         if(eventObject.eventDate != nil)
         {
             UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
@@ -63,17 +78,32 @@
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
             NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
             [eventDate setText:formattedDate];
+            [eventDate setTextColor:[UIColor eventDateColor]];
             [eventDate setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:eventDate];
             
             height += 20;
         }
         
+        /*
         if(eventObject.city != nil)
         {
             UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];
             [eventDate setText:eventObject.city];
+            [eventDate setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDate];
+            
+            height += 20;
+        }
+        */
+        
+        if(eventObject.genre != nil)
+        {
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            [eventDate setFont:[UIFont eventsCellOther]];
+            [eventDate setText:eventObject.genre];
+            [eventDate setTextColor:[UIColor eventGenreColor]];
             [eventDate setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:eventDate];
             
@@ -85,21 +115,13 @@
             UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
             [eventDate setFont:[UIFont eventsCellOther]];
             [eventDate setText:eventObject.location];
+            [eventDate setTextColor:[UIColor eventLocationColor]];
             [eventDate setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:eventDate];
             height += 20;
         }
         
-        if(eventObject.genre != nil)
-        {
-            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
-            [eventDate setFont:[UIFont eventsCellOther]];
-            [eventDate setText:eventObject.genre];
-            [eventDate setBackgroundColor:[UIColor clearColor]];
-            [self.contentView addSubview:eventDate];
-            
-            height += 20;
-        }
+
         
         /*
         if(eventObject.details != nil)

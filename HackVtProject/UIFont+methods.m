@@ -19,7 +19,7 @@
 
 +(UIFont *)eventsCellOther
 {
-    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:12];
+    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:15];
 }
 
 #pragma mark - EVENT DETAILS FONTS

@@ -16,13 +16,13 @@
     if(self = [super init])
     {
         //Real PARSE
-        self.eventDate = [dictionary objectForKey:@"date"];
-        self.location = [dictionary objectForKey:@"location"];
-        self.city = [dictionary objectForKey:@"city"];
-        self.title = [dictionary objectForKey:@"title"];
-        self.genre = [dictionary objectForKey:@"genre"];
+        self.eventDate = [dictionary objectForKey:@"event_date"];
+        self.location = [dictionary objectForKey:@"event_location"];
+        self.city = [dictionary objectForKey:@"event_city"];
+        self.title = [dictionary objectForKey:@"event_name"];
+        self.genre = [dictionary objectForKey:@"event_genre"];
         self.music = [dictionary objectForKey:@"music"];
-        self.eventID = [[dictionary objectForKey:@"eventID"] integerValue];
+        self.eventID = [[dictionary objectForKey:@"event_id"] integerValue];
         self.posterImage = [dictionary objectForKey:@"posterImage"];
     }
     
@@ -77,7 +77,7 @@
     }
     
     self.music = [[NSMutableArray alloc] init];
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 20; i++)
     {
         NSDictionary *temp = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"http://images.handy.de/fundb/web/290/11152/82000864.mp3", @"Best Song Ever!", nil] forKeys:[NSArray arrayWithObjects:@"url", @"title", nil]];
         [self.music addObject:temp];

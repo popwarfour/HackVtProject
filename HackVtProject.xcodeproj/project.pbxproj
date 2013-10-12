@@ -20,6 +20,9 @@
 		DF32BC2A1808BECA000A3351 /* UIFont+methods.m in Sources */ = {isa = PBXBuildFile; fileRef = DF32BC281808BECA000A3351 /* UIFont+methods.m */; };
 		DF32BC2D1808D300000A3351 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2B1808D300000A3351 /* Back.png */; };
 		DF32BC2E1808D300000A3351 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2C1808D300000A3351 /* Back@2x.png */; };
+		DF4A4F0518098A5D004799E7 /* EventsDetailViewController_Small.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4A4F0418098A5D004799E7 /* EventsDetailViewController_Small.xib */; };
+		DF4A4F0718098A7E004799E7 /* EventsViewController_Small.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4A4F0618098A7E004799E7 /* EventsViewController_Small.xib */; };
+		DF4A4F0918098AF1004799E7 /* ScannerViewController_Small.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4A4F0818098AF1004799E7 /* ScannerViewController_Small.xib */; };
 		DF55FBAF1808F3AC0054E5E4 /* musicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = DF55FBAE1808F3AC0054E5E4 /* musicNote.png */; };
 		DF55FBB718090B370054E5E4 /* CSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBB218090B370054E5E4 /* CSocketController.m */; };
 		DF55FBB818090B370054E5E4 /* greenhttp.c in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBB318090B370054E5E4 /* greenhttp.c */; };
@@ -93,6 +96,9 @@
 		DF32BC281808BECA000A3351 /* UIFont+methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+methods.m"; sourceTree = "<group>"; };
 		DF32BC2B1808D300000A3351 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Back.png; path = images/Back.png; sourceTree = SOURCE_ROOT; };
 		DF32BC2C1808D300000A3351 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Back@2x.png"; path = "images/Back@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF4A4F0418098A5D004799E7 /* EventsDetailViewController_Small.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsDetailViewController_Small.xib; sourceTree = "<group>"; };
+		DF4A4F0618098A7E004799E7 /* EventsViewController_Small.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController_Small.xib; sourceTree = "<group>"; };
+		DF4A4F0818098AF1004799E7 /* ScannerViewController_Small.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController_Small.xib; sourceTree = "<group>"; };
 		DF55FBAE1808F3AC0054E5E4 /* musicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = musicNote.png; path = images/musicNote.png; sourceTree = SOURCE_ROOT; };
 		DF55FBB118090B370054E5E4 /* CSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSocketController.h; sourceTree = "<group>"; };
 		DF55FBB218090B370054E5E4 /* CSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSocketController.m; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 				DF32BC04180894B2000A3351 /* EventsDetailViewController.h */,
 				DF32BC05180894B2000A3351 /* EventsDetailViewController.m */,
 				DF32BC131808A366000A3351 /* EventsDetailViewController.xib */,
+				DF4A4F0418098A5D004799E7 /* EventsDetailViewController_Small.xib */,
 			);
 			name = "Event Details View Controller";
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 				DFCD4CC31807494700E10FC3 /* ScannerViewController.h */,
 				DFCD4CC41807494700E10FC3 /* ScannerViewController.m */,
 				DF32BC171808A393000A3351 /* ScannerViewController.xib */,
+				DF4A4F0818098AF1004799E7 /* ScannerViewController_Small.xib */,
 			);
 			name = "Scanner Controller";
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 				DF32BC191808A95E000A3351 /* Event Cell */,
 				DFCD4CBE1807493300E10FC3 /* EventsViewController.h */,
 				DFCD4CBF1807493300E10FC3 /* EventsViewController.m */,
+				DF4A4F0618098A7E004799E7 /* EventsViewController_Small.xib */,
 				DF32BC111808A349000A3351 /* EventsViewController.xib */,
 				DF32BC0318089470000A3351 /* Event Details View Controller */,
 			);
@@ -513,6 +522,9 @@
 				DF8A64D018094800009079DD /* speak.png in Resources */,
 				DF9D82A11809528D00C935B3 /* addCalander.png in Resources */,
 				DF9D82A21809528D00C935B3 /* like.jpg in Resources */,
+				DF4A4F0518098A5D004799E7 /* EventsDetailViewController_Small.xib in Resources */,
+				DF4A4F0718098A7E004799E7 /* EventsViewController_Small.xib in Resources */,
+				DF4A4F0918098AF1004799E7 /* ScannerViewController_Small.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

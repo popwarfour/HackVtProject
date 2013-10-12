@@ -30,8 +30,21 @@
 
     //First Call of singleton container controller will allocate and initilize it
     ContainerController *mainContainerController = [ContainerController sharedContainer];
-    EventsViewController *theEventsController = [[EventsViewController alloc] initWithNibName:@"EventsViewController" bundle:nil];
-    ScannerViewController *theScannerController = [[ScannerViewController alloc] initWithNibName:@"ScannerViewController" bundle:nil];
+    
+    EventsViewController *theEventsController = nil;
+    ScannerViewController *theScannerController = nil;
+    
+    if([UIScreen mainScreen].bounds.size.height == 568.0)
+    {
+        theEventsController = [[EventsViewController alloc] initWithNibName:@"EventsViewController" bundle:nil];
+        theScannerController = [[ScannerViewController alloc] initWithNibName:@"ScannerViewController" bundle:nil];
+    }
+    else
+    {
+        theEventsController = [[EventsViewController alloc] initWithNibName:@"EventsViewController_Small" bundle:nil];
+        theScannerController = [[ScannerViewController alloc] initWithNibName:@"ScannerViewController_Small" bundle:nil];
+    }
+    
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     

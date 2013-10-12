@@ -20,7 +20,15 @@
 
 -(id)initWithEventObject:(EventObject *)eventObject
 {
-    self = [super initWithNibName:@"EventsDetailViewController" bundle:nil];
+    if([UIScreen mainScreen].bounds.size.height == 568.0)
+    {
+        self = [super initWithNibName:@"EventsDetailViewController" bundle:nil];
+    }
+    else
+    {
+        self = [super initWithNibName:@"EventsDetailViewController_Small" bundle:nil];
+    }
+    
     if (self)
     {
         self.eventObject = eventObject;
@@ -57,7 +65,7 @@
             //Small Poster Image
             
       
-            self.posterImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"speak.png"]];
+            self.posterImage = [[UIImageView alloc] initWithImage:eventObject.posterImage];
             [self.posterImage setFrame:CGRectMake(5, contentHeight, 130, 180)];
             [self.mainScrollView addSubview:self.posterImage];
         

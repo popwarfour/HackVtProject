@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HackVtProject/EventsDetailViewController.m"
-         timestampString = "403268267.378327"
+         timestampString = "403278807.590748"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "460"
-         endingLineNumber = "460"
+         startingLineNumber = "468"
+         endingLineNumber = "468"
          landmarkName = "-initWithEventObject:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -235,6 +235,19 @@
          startingLineNumber = "51"
          endingLineNumber = "51"
          landmarkName = "-initWithJSONObject:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HackVtProject/EventsDetailViewController.m"
+         timestampString = "403278807.590748"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-initWithEventObject:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

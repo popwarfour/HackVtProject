@@ -51,7 +51,8 @@
         }
         
         BOOL largeView = FALSE;
-        if(eventObject.posterImage != nil && (eventObject.eventDate != nil || eventObject.location != nil || eventObject.city || eventObject.genre != nil))
+        //if(eventObject.posterImage != nil && (eventObject.eventDate != nil || eventObject.location != nil || eventObject.city || eventObject.genre != nil))
+        if(eventObject.posterImage != nil)
         {
             largeView = TRUE;
             //Small Poster Image
@@ -64,6 +65,7 @@
                 UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.posterImage.frame.size.width + 10, contentHeight, self.mainScrollView.frame.size.width - (self.posterImage.frame.size.width + 20), 20)];
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setTextColor:[UIColor eventDateColor]];
                 [eventTitle setText:@"Event Date"];
                 [eventTitle setTextAlignment:NSTextAlignmentCenter];
                 [self.mainScrollView addSubview:eventTitle];
@@ -90,6 +92,7 @@
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Venue"];
+                [eventTitle setTextColor:[UIColor eventVenueColor]];
                 [eventTitle setTextAlignment:NSTextAlignmentCenter];
                 [self.mainScrollView addSubview:eventTitle];
                 
@@ -111,6 +114,7 @@
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Location"];
+                [eventTitle setTextColor:[UIColor eventLocationColor]];
                 [eventTitle setTextAlignment:NSTextAlignmentCenter];
                 [self.mainScrollView addSubview:eventTitle];
                 
@@ -132,6 +136,7 @@
                 [eventTitle setBackgroundColor:[UIColor clearColor]];
                 [eventTitle setFont:[UIFont eventsDetailTitle]];
                 [eventTitle setText:@"Genre"];
+                [eventTitle setTextColor:[UIColor eventGenreColor]];
                 [eventTitle setTextAlignment:NSTextAlignmentCenter];
                 [self.mainScrollView addSubview:eventTitle];
                 
@@ -190,6 +195,98 @@
         }
         else
         {
+            if(eventObject.eventDate != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setTextColor:[UIColor eventDateColor]];
+                [eventTitle setText:@"Event Date"];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+                NSString *formattedDate = [dateFormatter stringFromDate:eventObject.eventDate];
+                [eventDate setText:formattedDate];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            if(eventObject.location != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Venue"];
+                [eventTitle setTextColor:[UIColor eventVenueColor]];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.location];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            if(eventObject.city != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Location"];
+                [eventTitle setTextColor:[UIColor eventLocationColor]];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.city];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            
+            if(eventObject.genre != nil)
+            {
+                UILabel *eventTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventTitle setBackgroundColor:[UIColor clearColor]];
+                [eventTitle setFont:[UIFont eventsDetailTitle]];
+                [eventTitle setText:@"Genre"];
+                [eventTitle setTextColor:[UIColor eventGenreColor]];
+                [eventTitle setTextAlignment:NSTextAlignmentCenter];
+                [self.mainScrollView addSubview:eventTitle];
+                
+                contentHeight += 25;
+                
+                UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, 20)];
+                [eventDate setFont:[UIFont eventsDetailsMemebers]];
+                [eventDate setText:eventObject.genre];
+                [eventDate setTextAlignment:NSTextAlignmentCenter];
+                [eventDate setBackgroundColor:[UIColor clearColor]];
+                [self.mainScrollView addSubview:eventDate];
+                
+                contentHeight += 20 + 5;
+            }
+            /*
             //Large Poster Image
             if(eventObject.posterImage != nil)
             {
@@ -226,7 +323,7 @@
                 
                 contentHeight += 20 + 5;
             }
-            
+            */
             /*
             if(eventObject.memebers != nil)
             {
@@ -288,13 +385,13 @@
             
             contentHeight += 25;
             
-            CGSize size = [eventObject.details sizeWithFont:[UIFont eventsCellDescription] constrainedToSize:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
+            CGSize size = [eventObject.details sizeWithFont:[UIFont eventsDetailDetails] constrainedToSize:CGSizeMake(self.view.frame.size.width - 20, CGFLOAT_MAX)];
             
             UILabel *eventDetails = nil;
             eventDetails = [[UILabel alloc] initWithFrame:CGRectMake(5, contentHeight, self.mainScrollView.frame.size.width - 10, size.height)];
             
             [eventDetails setTextAlignment:NSTextAlignmentLeft];
-            [eventDetails setFont:[UIFont eventsCellDescription]];
+            [eventDetails setFont:[UIFont eventsDetailDetails]];
             [eventDetails setText:eventObject.details];
             [eventDetails setNumberOfLines:0];
             
@@ -310,6 +407,14 @@
             {
                 contentHeight += 8;
                 
+                if(self.posterImage.image != nil)
+                {
+                    if(contentHeight < self.posterImage.frame.origin.y + self.posterImage.frame.size.height)
+                    {
+                        contentHeight = self.posterImage.frame.origin.y + self.posterImage.frame.size.height + 10;
+                    }
+                }
+                
                 UIView *musicBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(5, contentHeight - 8, self.mainScrollView.frame.size.width - 10, 10)];
                 [musicBackgroundView.layer setCornerRadius:15];
                 [musicBackgroundView setBackgroundColor:[UIColor grayColor]];
@@ -324,9 +429,9 @@
                     music.tag = counter;
                     [music setImage:[UIImage imageNamed:@"musicNote.png"] forState:UIControlStateNormal];
                     [music addTarget:self action:@selector(playMusic:) forControlEvents:UIControlEventTouchUpInside];
-                    [music setFrame:CGRectMake(10, contentHeight, 50, 50)];
+                    [music setFrame:CGRectMake(15, contentHeight, 20, 20)];
                     
-                    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 + 55, contentHeight, self.view.frame.size.width - 60 - 15, 50)];
+                    UILabel *songLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 + 35, contentHeight, self.view.frame.size.width - 60 - 20, 20)];
                     [songLabel setText:songTitle];
                     [songLabel setBackgroundColor:[UIColor clearColor]];
                     [songLabel setTextAlignment:NSTextAlignmentLeft];
@@ -337,7 +442,7 @@
                     
        
                     counter++;
-                    contentHeight += 65;
+                    contentHeight += 35;
                     
                     if(counter != eventObject.music.count)
                     {
@@ -348,7 +453,7 @@
                     
                 }
                 
-                [musicBackgroundView setFrame:CGRectMake(musicBackgroundView.frame.origin.x, musicBackgroundView.frame.origin.y, musicBackgroundView.frame.size.width, counter * 65)];
+                [musicBackgroundView setFrame:CGRectMake(musicBackgroundView.frame.origin.x, musicBackgroundView.frame.origin.y, musicBackgroundView.frame.size.width, counter * 35)];
                 
             }
         }

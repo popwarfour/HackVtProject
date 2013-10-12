@@ -39,22 +39,31 @@
 {
     [super viewDidLoad];
     
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+    //[backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewBackground.png"]]];
+    [backgroundView setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:backgroundView];
+    [self.view bringSubviewToFront:self.eventsTableView];
+    [self.eventsTableView setBackgroundColor:[UIColor clearColor]];
+    [self.eventsTableView setHidden:FALSE];
+    
     self.segmentBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
-    [self.segmentBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"segementBackgroundGradient.png"]]];
+    [self.segmentBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"segmentBackground.png"]]];
     [self.view addSubview:self.segmentBackgroundView];
     
     self.eventsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.eventsSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All Events", @"Suggested", @"Scanned", nil]];
-    [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 70, 30)];
+    [self.eventsSegment setFrame:CGRectMake(10, 5, self.view.frame.size.width - 105, 30)];
     self.eventsSegment.segmentedControlStyle = UISegmentedControlStyleBar;
     self.eventsSegment.selectedSegmentIndex = 0;
     [self.eventsSegment addTarget:self action:@selector(eventSegmentChanged) forControlEvents:UIControlEventValueChanged];
     [self.segmentBackgroundView addSubview:self.eventsSegment];
     
-    self.QRScanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 55, 5, 50, 30)];
-    [self.QRScanButton setTitle:@"QR" forState:UIControlStateNormal];
+    self.QRScanButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.QRScanButton setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
+    [self.QRScanButton setFrame:CGRectMake(self.view.frame.size.width - 90, 5, 90, 30)];
+    [self.QRScanButton setTitle:@"Scan QR" forState:UIControlStateNormal];
     [self.QRScanButton setBackgroundColor:[UIColor blackColor]];
     [self.QRScanButton addTarget:self action:@selector(scanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.QRScanButton setBackgroundColor:[UIColor clearColor]];
@@ -168,6 +177,8 @@
     {
         cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andEventObject:[self.scannedEvents objectAtIndex:indexPath.row]];
     }
+    
+    [cell.contentView setBackgroundColor:[UIColor clearColor]];
 
     return cell;
 }

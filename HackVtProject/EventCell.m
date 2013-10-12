@@ -22,7 +22,7 @@
         
         UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(5, 0, self.contentView.frame.size.width - 10, 100)];
         [backgroundView.layer setCornerRadius:10];
-        [backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"eventCellBackgroundGradient.png"]]];
+        [backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tableViewCellBackground.png"]]];
         [backgroundView.layer setBorderWidth:1];
         [backgroundView.layer setBorderColor:[UIColor blackColor].CGColor];
         [self.contentView addSubview:backgroundView];
@@ -57,7 +57,7 @@
         if(eventObject.eventDate != nil)
         {
             UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
-            [eventDate setFont:[UIFont eventsCellTitle]];
+            [eventDate setFont:[UIFont eventsCellOther]];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"EEE MMM dd yyyy"];
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -69,6 +69,39 @@
             height += 20;
         }
         
+        if(eventObject.city != nil)
+        {
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            [eventDate setFont:[UIFont eventsCellOther]];
+            [eventDate setText:eventObject.city];
+            [eventDate setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDate];
+            
+            height += 20;
+        }
+        
+        if(eventObject.location != nil)
+        {
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            [eventDate setFont:[UIFont eventsCellOther]];
+            [eventDate setText:eventObject.location];
+            [eventDate setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDate];
+            height += 20;
+        }
+        
+        if(eventObject.genre != nil)
+        {
+            UILabel *eventDate = [[UILabel alloc] initWithFrame:CGRectMake(leftPadding, height, 140, 20)];
+            [eventDate setFont:[UIFont eventsCellOther]];
+            [eventDate setText:eventObject.genre];
+            [eventDate setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:eventDate];
+            
+            height += 20;
+        }
+        
+        /*
         if(eventObject.details != nil)
         {
             CGSize size = [eventObject.details sizeWithFont:[UIFont eventsCellDescription] constrainedToSize:CGSizeMake(self.frame.size.width - leftPadding - 10, 100 - height - 5)];
@@ -93,7 +126,8 @@
             [self.contentView addSubview:eventDetails];
             
             height += 60;
-        }        
+        }    
+         */
     }
     return self;
 }

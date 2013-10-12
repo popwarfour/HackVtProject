@@ -14,10 +14,10 @@
 
 +(UIFont *)eventsCellTitle
 {
-    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:14];
+    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20];
 }
 
-+(UIFont *)eventsCellDescription
++(UIFont *)eventsCellOther
 {
     return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:12];
 }

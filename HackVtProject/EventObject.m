@@ -37,7 +37,7 @@
     }
     else
     {
-        self.eventDate = [NSDate date];
+        //self.eventDate = [NSDate date];
     }
     
     if(arc4random() % 2 == 0)
@@ -46,7 +46,7 @@
     }
     else
     {
-        self.location = @"Nectars";
+        //self.location = @"Nectars";
     }
     
     if(arc4random() % 2 == 0)
@@ -55,7 +55,7 @@
     }
     else
     {
-        self.city = @"Burlington";
+        //self.city = @"Burlington";
     }
     
     if(arc4random() % 2 == 0)
@@ -64,7 +64,7 @@
     }
     else
     {
-        self.title = @"Monkey House, Winooski Vermont";
+        //self.title = @"Monkey House, Winooski Vermont";
     }
     
     if(arc4random() % 2 == 0)
@@ -73,7 +73,7 @@
     }
     else
     {
-        self.genre = @"Hip Hop";
+        //self.genre = @"Hip Hop";
     }
     
     self.music = [[NSMutableArray alloc] init];
@@ -92,7 +92,7 @@
     }
     else
     {
-        self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
+        //self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
     }
 
     return self;

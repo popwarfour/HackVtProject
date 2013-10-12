@@ -20,5 +20,22 @@
     return [UIColor colorWithRed:19.0f/255.0f green:122.0f/255.0f blue:28.0f/255.0f alpha:1];
 }
 
++(UIColor *)eventDateColor
+{
+    return [UIColor colorWithRed:102.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1];
+}
++(UIColor *)eventVenueColor
+{
+    return [UIColor colorWithRed:0.0f/255.0f green:102.0f/255.0f blue:0.0f/255.0f alpha:1];
+}
++(UIColor *)eventLocationColor
+{
+    return [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:102.0f/255.0f alpha:1];
+}
++(UIColor *)eventGenreColor
+{
+    return [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:1];
+}
+
 
 @end

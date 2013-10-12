@@ -11,7 +11,7 @@
 @interface UIFont (UIFont)
 
 +(UIFont *)eventsCellTitle;
-+(UIFont *)eventsCellDescription;
++(UIFont *)eventsCellOther;
 
 #pragma mark - EVENT DETAILS FONTS
 

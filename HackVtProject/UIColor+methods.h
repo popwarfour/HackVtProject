@@ -13,4 +13,9 @@
 +(UIColor *)eventCellBackgroundColor;
 +(UIColor *)segmentBackgroundColor;
 
+
++(UIColor *)eventDateColor;
++(UIColor *)eventVenueColor;
++(UIColor *)eventLocationColor;
++(UIColor *)eventGenreColor;
 @end

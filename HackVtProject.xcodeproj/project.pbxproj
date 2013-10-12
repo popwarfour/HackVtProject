@@ -26,9 +26,15 @@
 		DF55FBE318090F210054E5E4 /* FSN_categories.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBBF18090F210054E5E4 /* FSN_categories.m */; };
 		DF55FBE418090F210054E5E4 /* FSNConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBC118090F210054E5E4 /* FSNConnection.m */; };
 		DF55FBE518090F210054E5E4 /* FSNData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBC318090F210054E5E4 /* FSNData.m */; };
+		DFAE4DB818092CAF00B76954 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DB718092CAF00B76954 /* button.png */; };
+		DFAE4DBC1809337900B76954 /* tableViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DBA1809337900B76954 /* tableViewBackground.png */; };
+		DFAE4DBD1809337900B76954 /* tableViewBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DBB1809337900B76954 /* tableViewBackground@2x.png */; };
+		DFAE4DC01809373000B76954 /* tableViewCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DBE1809373000B76954 /* tableViewCellBackground.png */; };
+		DFAE4DC11809373000B76954 /* tableViewCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DBF1809373000B76954 /* tableViewCellBackground@2x.png */; };
+		DFAE4DC4180938E900B76954 /* segmentBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DC2180938E900B76954 /* segmentBackground.png */; };
+		DFAE4DC5180938E900B76954 /* segmentBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAE4DC3180938E900B76954 /* segmentBackground@2x.png */; };
 		DFAEDC8B1808E2560058D301 /* eventCellBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */; };
 		DFAEDC8C1808E2560058D301 /* eventCellBackgroundGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */; };
-		DFAEDC8E1808E2560058D301 /* segementBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */; };
 		DFCD4C801807482F00E10FC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C7F1807482F00E10FC3 /* UIKit.framework */; };
 		DFCD4C821807482F00E10FC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C811807482F00E10FC3 /* Foundation.framework */; };
 		DFCD4C841807482F00E10FC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCD4C831807482F00E10FC3 /* CoreGraphics.framework */; };
@@ -95,9 +101,15 @@
 		DF55FBC118090F210054E5E4 /* FSNConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNConnection.m; sourceTree = "<group>"; };
 		DF55FBC218090F210054E5E4 /* FSNData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNData.h; sourceTree = "<group>"; };
 		DF55FBC318090F210054E5E4 /* FSNData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNData.m; sourceTree = "<group>"; };
+		DFAE4DB718092CAF00B76954 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = images/button.png; sourceTree = SOURCE_ROOT; };
+		DFAE4DBA1809337900B76954 /* tableViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableViewBackground.png; path = images/tableViewBackground.png; sourceTree = SOURCE_ROOT; };
+		DFAE4DBB1809337900B76954 /* tableViewBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tableViewBackground@2x.png"; path = "images/tableViewBackground@2x.png"; sourceTree = SOURCE_ROOT; };
+		DFAE4DBE1809373000B76954 /* tableViewCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tableViewCellBackground.png; path = images/tableViewCellBackground.png; sourceTree = SOURCE_ROOT; };
+		DFAE4DBF1809373000B76954 /* tableViewCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tableViewCellBackground@2x.png"; path = "images/tableViewCellBackground@2x.png"; sourceTree = SOURCE_ROOT; };
+		DFAE4DC2180938E900B76954 /* segmentBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = segmentBackground.png; path = images/segmentBackground.png; sourceTree = SOURCE_ROOT; };
+		DFAE4DC3180938E900B76954 /* segmentBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "segmentBackground@2x.png"; path = "images/segmentBackground@2x.png"; sourceTree = SOURCE_ROOT; };
 		DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventCellBackgroundGradient.png; path = images/eventCellBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
 		DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eventCellBackgroundGradient@2x.png"; path = "images/eventCellBackgroundGradient@2x.png"; sourceTree = SOURCE_ROOT; };
-		DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = segementBackgroundGradient.png; path = images/segementBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
 		DFCD4C7C1807482F00E10FC3 /* HackVtProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackVtProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFCD4C7F1807482F00E10FC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DFCD4C811807482F00E10FC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -196,10 +208,11 @@
 		DF32BC211808BDF9000A3351 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DFAE4DB91809336F00B76954 /* Gradients */,
+				DFAE4DB718092CAF00B76954 /* button.png */,
 				DF55FBAE1808F3AC0054E5E4 /* musicNote.png */,
 				DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */,
 				DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */,
-				DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */,
 				DF32BC2B1808D300000A3351 /* Back.png */,
 				DF32BC2C1808D300000A3351 /* Back@2x.png */,
 				DF32BC221808BE1F000A3351 /* samplePoster.jpeg */,
@@ -241,6 +254,19 @@
 			);
 			path = FSNetworking;
 			sourceTree = SOURCE_ROOT;
+		};
+		DFAE4DB91809336F00B76954 /* Gradients */ = {
+			isa = PBXGroup;
+			children = (
+				DFAE4DC2180938E900B76954 /* segmentBackground.png */,
+				DFAE4DC3180938E900B76954 /* segmentBackground@2x.png */,
+				DFAE4DBE1809373000B76954 /* tableViewCellBackground.png */,
+				DFAE4DBF1809373000B76954 /* tableViewCellBackground@2x.png */,
+				DFAE4DBA1809337900B76954 /* tableViewBackground.png */,
+				DFAE4DBB1809337900B76954 /* tableViewBackground@2x.png */,
+			);
+			name = Gradients;
+			sourceTree = "<group>";
 		};
 		DFCD4C731807482F00E10FC3 = {
 			isa = PBXGroup;
@@ -467,8 +493,14 @@
 				DF32BC2E1808D300000A3351 /* Back@2x.png in Resources */,
 				DFAEDC8B1808E2560058D301 /* eventCellBackgroundGradient.png in Resources */,
 				DFAEDC8C1808E2560058D301 /* eventCellBackgroundGradient@2x.png in Resources */,
-				DFAEDC8E1808E2560058D301 /* segementBackgroundGradient.png in Resources */,
 				DF55FBAF1808F3AC0054E5E4 /* musicNote.png in Resources */,
+				DFAE4DB818092CAF00B76954 /* button.png in Resources */,
+				DFAE4DBC1809337900B76954 /* tableViewBackground.png in Resources */,
+				DFAE4DBD1809337900B76954 /* tableViewBackground@2x.png in Resources */,
+				DFAE4DC01809373000B76954 /* tableViewCellBackground.png in Resources */,
+				DFAE4DC11809373000B76954 /* tableViewCellBackground@2x.png in Resources */,
+				DFAE4DC4180938E900B76954 /* segmentBackground.png in Resources */,
+				DFAE4DC5180938E900B76954 /* segmentBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

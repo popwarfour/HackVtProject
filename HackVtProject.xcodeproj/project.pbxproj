@@ -21,6 +21,11 @@
 		DF32BC2D1808D300000A3351 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2B1808D300000A3351 /* Back.png */; };
 		DF32BC2E1808D300000A3351 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF32BC2C1808D300000A3351 /* Back@2x.png */; };
 		DF55FBAF1808F3AC0054E5E4 /* musicNote.png in Resources */ = {isa = PBXBuildFile; fileRef = DF55FBAE1808F3AC0054E5E4 /* musicNote.png */; };
+		DF55FBB718090B370054E5E4 /* CSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBB218090B370054E5E4 /* CSocketController.m */; };
+		DF55FBB818090B370054E5E4 /* greenhttp.c in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBB318090B370054E5E4 /* greenhttp.c */; };
+		DF55FBE318090F210054E5E4 /* FSN_categories.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBBF18090F210054E5E4 /* FSN_categories.m */; };
+		DF55FBE418090F210054E5E4 /* FSNConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBC118090F210054E5E4 /* FSNConnection.m */; };
+		DF55FBE518090F210054E5E4 /* FSNData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55FBC318090F210054E5E4 /* FSNData.m */; };
 		DFAEDC8B1808E2560058D301 /* eventCellBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */; };
 		DFAEDC8C1808E2560058D301 /* eventCellBackgroundGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */; };
 		DFAEDC8E1808E2560058D301 /* segementBackgroundGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */; };
@@ -80,6 +85,16 @@
 		DF32BC2B1808D300000A3351 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Back.png; path = images/Back.png; sourceTree = SOURCE_ROOT; };
 		DF32BC2C1808D300000A3351 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Back@2x.png"; path = "images/Back@2x.png"; sourceTree = SOURCE_ROOT; };
 		DF55FBAE1808F3AC0054E5E4 /* musicNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = musicNote.png; path = images/musicNote.png; sourceTree = SOURCE_ROOT; };
+		DF55FBB118090B370054E5E4 /* CSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSocketController.h; sourceTree = "<group>"; };
+		DF55FBB218090B370054E5E4 /* CSocketController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSocketController.m; sourceTree = "<group>"; };
+		DF55FBB318090B370054E5E4 /* greenhttp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = greenhttp.c; sourceTree = "<group>"; };
+		DF55FBB418090B370054E5E4 /* greenhttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = greenhttp.h; sourceTree = "<group>"; };
+		DF55FBBE18090F210054E5E4 /* FSN_categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSN_categories.h; sourceTree = "<group>"; };
+		DF55FBBF18090F210054E5E4 /* FSN_categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSN_categories.m; sourceTree = "<group>"; };
+		DF55FBC018090F210054E5E4 /* FSNConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNConnection.h; sourceTree = "<group>"; };
+		DF55FBC118090F210054E5E4 /* FSNConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNConnection.m; sourceTree = "<group>"; };
+		DF55FBC218090F210054E5E4 /* FSNData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNData.h; sourceTree = "<group>"; };
+		DF55FBC318090F210054E5E4 /* FSNData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNData.m; sourceTree = "<group>"; };
 		DFAEDC871808E2560058D301 /* eventCellBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventCellBackgroundGradient.png; path = images/eventCellBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
 		DFAEDC881808E2560058D301 /* eventCellBackgroundGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eventCellBackgroundGradient@2x.png"; path = "images/eventCellBackgroundGradient@2x.png"; sourceTree = SOURCE_ROOT; };
 		DFAEDC8A1808E2560058D301 /* segementBackgroundGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = segementBackgroundGradient.png; path = images/segementBackgroundGradient.png; sourceTree = SOURCE_ROOT; };
@@ -203,6 +218,30 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		DF55FBB018090B210054E5E4 /* Networking Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF55FBB118090B370054E5E4 /* CSocketController.h */,
+				DF55FBB218090B370054E5E4 /* CSocketController.m */,
+				DF55FBB318090B370054E5E4 /* greenhttp.c */,
+				DF55FBB418090B370054E5E4 /* greenhttp.h */,
+			);
+			name = "Networking Controller";
+			sourceTree = "<group>";
+		};
+		DF55FBBC18090F210054E5E4 /* FSNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				DF55FBBE18090F210054E5E4 /* FSN_categories.h */,
+				DF55FBBF18090F210054E5E4 /* FSN_categories.m */,
+				DF55FBC018090F210054E5E4 /* FSNConnection.h */,
+				DF55FBC118090F210054E5E4 /* FSNConnection.m */,
+				DF55FBC218090F210054E5E4 /* FSNData.h */,
+				DF55FBC318090F210054E5E4 /* FSNData.m */,
+			);
+			path = FSNetworking;
+			sourceTree = SOURCE_ROOT;
+		};
 		DFCD4C731807482F00E10FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +294,8 @@
 		DFCD4C861807482F00E10FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DF55FBBC18090F210054E5E4 /* FSNetworking */,
+				DF55FBB018090B210054E5E4 /* Networking Controller */,
 				DF32BC241808BEBD000A3351 /* Categories */,
 				DF32BC211808BDF9000A3351 /* Images */,
 				DF32BC1D1808AA0E000A3351 /* Data Model */,
@@ -503,6 +544,11 @@
 				DF32BC201808AA41000A3351 /* EventObject.m in Sources */,
 				DF32BC291808BECA000A3351 /* UIColor+methods.m in Sources */,
 				DF32BC2A1808BECA000A3351 /* UIFont+methods.m in Sources */,
+				DF55FBB718090B370054E5E4 /* CSocketController.m in Sources */,
+				DF55FBB818090B370054E5E4 /* greenhttp.c in Sources */,
+				DF55FBE318090F210054E5E4 /* FSN_categories.m in Sources */,
+				DF55FBE418090F210054E5E4 /* FSNConnection.m in Sources */,
+				DF55FBE518090F210054E5E4 /* FSNData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

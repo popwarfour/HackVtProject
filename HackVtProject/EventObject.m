@@ -15,61 +15,86 @@
     
     if(self = [super init])
     {
-        self.eventID = arc4random() % 20;
-        
-        if(arc4random() % 2 == 0)
-        {
-            self.title = @"Crazy Music Event";
-        }
-        else
-        {
-            self.title = @"Monkey House, Winooski Vermont";
-        }
-        
-        if(arc4random() % 2 == 0)
-        {
-            self.memebers = [[NSMutableArray alloc] initWithObjects:@"John Doe", @"Kevin Bacon", @"Steve McAwesomePants", nil];
-        }
-        else
-        {
-            self.memebers = [[NSMutableArray alloc] initWithObjects:@"John Doe", @"Kevin Bacon", @"Steve McAwesomePants", nil];
-        }
-        
-        if(arc4random() % 2 == 0)
-        {
-            self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
-        }
-        else
-        {
-            self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
-        }
-        
-        if(arc4random() % 2 == 0)
-        {
-            self.details = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-        }
-        else
-        {
-            self.details = @"really really really short details descriptions!";
-        }
-        
-        if(arc4random() % 2 == 0)
-        {
-            self.eventDate = [NSDate date];
-        }
-        else
-        {
-            self.eventDate = [NSDate date];
-        }
-        
-        self.music = [[NSMutableArray alloc] init];
-        for(int i = 0; i < 10; i++)
-        {
-            NSDictionary *temp = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"http://images.handy.de/fundb/web/290/11152/82000864.mp3", @"Best Song Ever!", nil] forKeys:[NSArray arrayWithObjects:@"url", @"title", nil]];
-            [self.music addObject:temp];
-        }
+        //Real PARSE
+        self.eventDate = [dictionary objectForKey:@"date"];
+        self.location = [dictionary objectForKey:@"location"];
+        self.city = [dictionary objectForKey:@"city"];
+        self.title = [dictionary objectForKey:@"title"];
+        self.genre = [dictionary objectForKey:@"genre"];
+        self.music = [dictionary objectForKey:@"music"];
+        self.eventID = [[dictionary objectForKey:@"eventID"] integerValue];
+        self.posterImage = [dictionary objectForKey:@"posterImage"];
     }
     
+    return self;
+}
+
+-(id)initWithFakeData
+{
+    if(arc4random() % 2 == 0)
+    {
+        self.eventDate = [NSDate date];
+    }
+    else
+    {
+        self.eventDate = [NSDate date];
+    }
+    
+    if(arc4random() % 2 == 0)
+    {
+        self.location = @"Monkey House";
+    }
+    else
+    {
+        self.location = @"Nectars";
+    }
+    
+    if(arc4random() % 2 == 0)
+    {
+        self.city = @"Winooski";
+    }
+    else
+    {
+        self.city = @"Burlington";
+    }
+    
+    if(arc4random() % 2 == 0)
+    {
+        self.title = @"Crazy Music Event";
+    }
+    else
+    {
+        self.title = @"Monkey House, Winooski Vermont";
+    }
+    
+    if(arc4random() % 2 == 0)
+    {
+        self.genre = @"Winooski";
+    }
+    else
+    {
+        self.genre = @"Burlington";
+    }
+    
+    self.music = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 10; i++)
+    {
+        NSDictionary *temp = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"http://images.handy.de/fundb/web/290/11152/82000864.mp3", @"Best Song Ever!", nil] forKeys:[NSArray arrayWithObjects:@"url", @"title", nil]];
+        [self.music addObject:temp];
+    }
+    
+    self.eventID = arc4random() % 20;
+    
+    
+    if(arc4random() % 2 == 0)
+    {
+        self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
+    }
+    else
+    {
+        self.posterImage = [UIImage imageNamed:@"samplePoster.jpeg"];
+    }
+
     return self;
 }
 

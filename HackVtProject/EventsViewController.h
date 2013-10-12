@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 #import <ZBarSDK/ZBarSDK.h>
+#import "CSocketController.h"
 
 @interface EventsViewController : UIViewController <ZBarReaderDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 

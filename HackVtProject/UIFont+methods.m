@@ -26,7 +26,7 @@
 
 +(UIFont *)eventsDetailTitle
 {
-    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:16];
+    return [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20];
 }
 
 +(UIFont *)eventsDetailDetails

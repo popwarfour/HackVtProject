@@ -10,6 +10,7 @@
 #import "ContainerController.h"
 #import "EventCell.h"
 #import "EventsDetailViewController.h"
+#import "FSNConnection.h"
 
 #define BASEURL @"http://192.168.8.246/hackvt/HackVtProject/api/"
 
@@ -28,7 +29,8 @@
         self.suggestedEvents = [[NSMutableArray alloc] init];
         self.scannedEvents = [[NSMutableArray alloc] init];
         
-        [self getEventsFromServer];
+        [self getFakeEvents];
+        //[self getEventsFromServer];
     }
     return self;
 }
@@ -66,13 +68,13 @@
 
 #pragma mark - Networking Controller
 
--(void)getEventsFromServer
+-(void)getFakeEvents
 {    
     for(int i = 0; i < 20; i++)
     {
-        EventObject *newEvent1 = [[EventObject alloc] initWithJSONObject:nil];
-        EventObject *newEvent2 = [[EventObject alloc] initWithJSONObject:nil];
-        EventObject *newEvent3 = [[EventObject alloc] initWithJSONObject:nil];
+        EventObject *newEvent1 = [[EventObject alloc] initWithFakeData];
+        EventObject *newEvent2 = [[EventObject alloc] initWithFakeData];
+        EventObject *newEvent3 = [[EventObject alloc] initWithFakeData];
 
         [self.allEvents addObject:newEvent1];
         [self.suggestedEvents addObject:newEvent2];
@@ -81,11 +83,60 @@
     [self.eventsTableView reloadData];
 }
 
+-(void)getEventsFromServer
+{
+    FSNConnection *connection =
+    [FSNConnection withUrl:[NSURL URLWithString:[NSString stringWithFormat:@"%@events.php", BASEURL]]
+                    method:FSNRequestMethodGET
+                   headers:nil
+                parameters:nil
+                parseBlock:^id(FSNConnection *c, NSError **error)
+     {
+        FSNParseBlock parseBlock = c.parseBlock;
+         
+        //Add new points
+        NSArray *allEventDictionaries = [c.responseData arrayFromJSONWithError:error];
+        NSMutableArray *newEventObjects = [[NSMutableArray alloc] init];
+        for(NSDictionary *eventDictionary in allEventDictionaries)
+        {
+            EventObject *newEvent = [[EventObject alloc] initWithJSONObject:eventDictionary];
+            [newEventObjects addObject:newEvent];
+        }
+        
+        return newEventObjects;
+     }
+           completionBlock:^(FSNConnection *c)
+     {
+         NSMutableArray *newEvents = c.parseResult;
+         if(newEvents.count > 0)
+         {
+             [self.allEvents removeAllObjects];
+             self.allEvents = newEvents;
+         }
+     }
+             progressBlock:^(FSNConnection *c)
+     {
+         //NSLog(@"progress: %@: %.2f/%.2f", c, c.uploadProgress, c.downloadProgress);
+     }];
+    
+    [connection start];
+}
+
 #pragma mark - TABLE VIEW DATA SOURCE
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //REPLACE THE RETURN WITH THE NUMBER OF EVENTS IN THE ARRAY!
-    return 10;
+    if(self.eventsSegment.selectedSegmentIndex == 0)
+    {
+        return self.allEvents.count;
+    }
+    else if(self.eventsSegment.selectedSegmentIndex == 1)
+    {
+        return self.suggestedEvents.count;
+    }
+    else
+    {
+        return self.scannedEvents.count;
+    }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

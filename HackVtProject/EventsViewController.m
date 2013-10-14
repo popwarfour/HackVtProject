@@ -12,7 +12,7 @@
 #import "EventsDetailViewController.h"
 #import "FSNConnection.h"
 
-#define BASEURL @"http://192.168.8.246/hackvt/HackVtProject/api/"
+#define BASEURL @"http://www.uvm.edu/~mftoth/hackvt/api/"
 
 typedef void (^VoidBlock)(void);
 

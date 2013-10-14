@@ -10,7 +10,7 @@
 
 @implementation EventObject
 
-#define BASEURL @"http://192.168.8.246/hackvt/HackVtProject/"
+#define BASEURL @"http://www.uvm.edu/~mftoth/hackvt/"
 
 -(id)initWithJSONObject:(NSDictionary *)dictionary
 {
